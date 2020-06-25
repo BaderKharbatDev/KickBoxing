@@ -10,6 +10,13 @@
 
 @implementation CategoryItem
 
-<#methods#>
+-(id)init: (int) category : (int) weight {
+    self = [super init];
+    if(self) {
+        self.category = [NSNumber numberWithInt:category];
+        self.weight = weight;
+    }
+    return self;
+}
 
 @end

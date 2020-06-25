@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface CategoryItem : NSObject
-
-@property NSInteger
-@property NSNumber category;
+-(id)init: (int) category : (int) weight;
+@property NSInteger weight; //1, 2, or 3
+@property NSNumber* category; //the bitmask category
 @end

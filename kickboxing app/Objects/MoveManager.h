@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Move.h"
+#import "CategoryItem.h"
 
 @interface MoveManager : NSObject
 -(id)init;

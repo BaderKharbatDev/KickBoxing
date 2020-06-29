@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Objects/MoveManager.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+@property UIWindow * window;
 @property MoveManager * manager;
 @end
 

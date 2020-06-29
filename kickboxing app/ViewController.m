@@ -12,6 +12,8 @@
 @property (strong, nonatomic) IBOutlet UIStepper *stepper;
 @property (strong, nonatomic) IBOutlet UILabel *countLabel;
 @property (strong, nonatomic) IBOutlet UITableView *table;
+@property (strong, nonatomic) IBOutlet UIButton *editButton;
+@property (strong, nonatomic) IBOutlet UIView *popupWindow;
 @property NSMutableArray * moveArray;
 @property MoveManager * manager;
 @end
@@ -28,11 +30,10 @@
 
 -(void)setupUI {
     //setup UI
-    self.stepper.maximumValue = 1;
+    self.stepper.minimumValue = 1;
     self.stepper.maximumValue = 10;
     self.stepper.value = 4;
     self.countLabel.text = [NSString stringWithFormat:@"%1.0f", self.stepper.value];
-//    self.moveArray = [NSMutableArray arrayWithArray:@[self.manager.moveList[0]]];
 }
 
 - (IBAction)onStepperChange:(UIStepper *)sender {
@@ -48,6 +49,24 @@
     }
     NSLog(@"------");
 }
+
+- (IBAction)modalPopupButton:(UIButton *)sender {
+    
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    UIVisualEffectView * blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    blurEffectView.alpha = 0.5f;
+    blurEffectView.frame = self.view.frame;
+    [self.view addSubview:blurEffectView];
+    
+    [self.view addSubview: _popupWindow];
+    _popupWindow.center = self.view.center;
+}
+
+- (IBAction)dismissPopupWindow:(UIButton *)sender {
+    [self.popupWindow removeFromSuperview];
+    [self.view.subviews[self.view.subviews.count - 1] removeFromSuperview];
+}
+
 
 #pragma mark - UITableView DataSource Methods
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

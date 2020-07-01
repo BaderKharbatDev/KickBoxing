@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "Filter/HeaderCell.h"
 
 @interface ViewController : UIViewController
 -(void)viewDidLoad;

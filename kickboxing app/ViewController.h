@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "Filter/HeaderCell.h"
+#import "Filter/MoveCell.h"
+#import "Filter/CellMenuItem.h"
 
 @interface ViewController : UIViewController
 -(void)viewDidLoad;

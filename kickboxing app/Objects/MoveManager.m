@@ -21,9 +21,9 @@
                                    @[[[CategoryItem alloc] init: Kick | Close :2],[[CategoryItem alloc] init: Punch | Close :3], [[CategoryItem alloc] init: HeadMovement | Close :1], [[CategoryItem alloc] init: FootMovement | Close :1]] ]];
         [self.moveList addObject: [[Move alloc] initWithParams:@"Teep" : Kick : Easy : Close :
                                    @[[[CategoryItem alloc] init: Kick | Easy :2], [[CategoryItem alloc] init: Punch :3], [[CategoryItem alloc] init: HeadMovement :1], [[CategoryItem alloc] init: FootMovement | Close :1]] ]];
-        [self.moveList addObject: [[Move alloc] initWithParams:@"Front Kick" : Kick : Easy : Close :
+        [self.moveList addObject: [[Move alloc] initWithParams:@"Front Kick" : Kick : Easy : Far :
                                    @[[[CategoryItem alloc] init: Kick :2], [[CategoryItem alloc] init: Punch :3], [[CategoryItem alloc] init: HeadMovement :1], [[CategoryItem alloc] init: FootMovement | Close :1]] ]];
-        [self.moveList addObject: [[Move alloc] initWithParams:@"Round Kick" : Kick : Easy : Close :
+        [self.moveList addObject: [[Move alloc] initWithParams:@"Round Kick" : Kick : Easy : Far :
                                    @[[[CategoryItem alloc] init: Kick | Easy :2], [[CategoryItem alloc] init: Punch :3], [[CategoryItem alloc] init: Kick | Hard :1], [[CategoryItem alloc] init: HeadMovement :1], [[CategoryItem alloc] init: FootMovement | Close :1]] ]];
         [self.moveList addObject: [[Move alloc] initWithParams:@"Side Kick" : Kick :Normal : Far :
                                    @[[[CategoryItem alloc] init: Kick :1], [[CategoryItem alloc] init: FootMovement :1], [[CategoryItem alloc] init: Punch :2]] ]];
@@ -56,7 +56,7 @@
         [self.moveList addObject: [[Move alloc] initWithParams:@"Slide in" : FootMovement : Easy : Far :
                                    @[[[CategoryItem alloc] init: Punch :3], [[CategoryItem alloc] init: Kick | Close :2], [[CategoryItem alloc] init: HeadMovement :1]] ]];
         [self.moveList addObject: [[Move alloc] initWithParams:@"Slide out" : FootMovement : Easy : Close :
-                                   @[[[CategoryItem alloc] init: Kick :1]] ]];
+                                   @[[[CategoryItem alloc] init: Kick | Far :1]] ]];
         [self.moveList addObject: [[Move alloc] initWithParams:@"Slide left" : FootMovement : Easy : Close | Far :
                                    @[[[CategoryItem alloc] init: Kick | Close :3], [[CategoryItem alloc] init: HeadMovement :1], [[CategoryItem alloc] init: Punch :3]] ]];
         [self.moveList addObject: [[Move alloc] initWithParams:@"Slide right" : FootMovement : Easy : Close | Far :
@@ -82,9 +82,6 @@
 }
 
 -(Move *)getNextMove: (Move *) lastMove {
-    if([lastMove.name  isEqual: @"Slide out"]){
-        
-    }
     
     NSMutableArray * availableMoves = [[NSMutableArray alloc] init];
     for(int i = 0; i < [lastMove nextArray].count; i++) {

@@ -16,6 +16,10 @@
 #import <UIKit/UIKit.h>
 
 @interface HeaderCell : UITableViewCell
+-(id)initWithCell: (NSString *) title : (UITableViewCell *) cell : (NSMutableArray *) moveCellArray;
+- (IBAction)arrowPressed:(UIButton *)sender;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
-@property (strong, nonatomic) IBOutlet UIImageView *arrowButton;
+@property (strong, nonatomic) IBOutlet UIButton *arrowButton;
+@property BOOL isOpen;
+@property NSMutableArray * moveCellArray;
 @end

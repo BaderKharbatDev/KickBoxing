@@ -1,0 +1,39 @@
+//
+//  MoveCell.m
+//  kickboxing app
+//
+//  Created by Bader on 7/2/20.
+//  Copyright © 2020 Nebo. All rights reserved.
+//
+
+#import "MoveCell.h"
+
+@interface MoveCell ()
+
+@end
+
+@implementation MoveCell
+-(id)initWithCell: (Move *) move : (UITableViewCell *) cell {
+    self = (MoveCell *) cell;
+    if(self) {
+        self.move = move;
+        self.title.text = move.name;
+        if(move.isActive)
+            [self.boxButton setImage: [UIImage imageNamed:@"checked"] forState:UIControlStateNormal];
+        else
+            [self.boxButton setImage: [UIImage imageNamed:@"unchecked"] forState:UIControlStateNormal];
+    }
+    return self;
+}
+
+- (IBAction)checkBoxPressed:(UIButton *)sender {
+    self.move.isActive = !self.move.isActive;
+    if(self.move.isActive)
+        [self.boxButton setImage: [UIImage imageNamed:@"checked"] forState:UIControlStateNormal];
+    else
+        [self.boxButton setImage: [UIImage imageNamed:@"unchecked"] forState:UIControlStateNormal];
+}
+
+
+@end
+

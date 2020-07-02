@@ -14,5 +14,25 @@
 
 @implementation HeaderCell
 
+-(id)initWithCell: (NSString *) title : (UITableViewCell *) cell : (NSMutableArray *) moveCellArray {
+    self = (HeaderCell *) cell;
+    if(self) {
+        self.titleLabel.text = title;
+        self.isOpen = false;
+        [self.arrowButton setImage: [UIImage imageNamed:@"arrowright"] forState:UIControlStateNormal];
+        self.moveCellArray = moveCellArray;
+    }
+    return self;
+}
+
+- (IBAction)arrowPressed:(UIButton *)sender {
+    _isOpen = !_isOpen;
+    if(_isOpen)
+        [self.arrowButton setImage:[UIImage imageNamed:@"arrowdown"] forState:UIControlStateNormal];
+    else
+        [self.arrowButton setImage:[UIImage imageNamed:@"arrowright"] forState:UIControlStateNormal];
+}
+
+
 
 @end

@@ -16,12 +16,12 @@
 @property (strong, nonatomic) IBOutlet UIButton *editButton;
 @property (strong, nonatomic) IBOutlet UIView *popupWindow;
 @property NSMutableArray * moveArray;
-@property NSArray * editArray;
+@property NSArray * editHeaderArray;
+@property NSMutableArray * editActualArray;
 @property MoveManager * manager;
 @end
 
 @implementation ViewController
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,7 +38,50 @@
     self.countLabel.text = [NSString stringWithFormat:@"%1.0f", self.stepper.value];
     [self.table setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.editTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    self.table.allowsSelection = false;
+    self.editTable.allowsSelection = false;
+    [self setupEditTable];
+}
 
+-(void) setupEditTable {
+    CellMenuItem * kickHeader;
+    CellMenuItem * punchHeader;
+    CellMenuItem * headHeader;
+    CellMenuItem * footHeader;
+    
+    NSMutableArray * kickMoveArray = [[NSMutableArray alloc] init];
+    NSMutableArray * kickHelperArray = [self.manager getMatchingMovesHelper: Kick];
+    for(int i = 0; i < kickHelperArray.count; i++) {
+        CellMenuItem * m = [[CellMenuItem alloc] init: false : [[MoveCell alloc] initWithCell:kickHelperArray[i] : [self.editTable dequeueReusableCellWithIdentifier:@"editsub"]]];
+        [kickMoveArray addObject: m];
+    }
+    kickHeader = [[CellMenuItem alloc] init:true :[[HeaderCell alloc] initWithCell:@"Kick" :[self.editTable dequeueReusableCellWithIdentifier:@"edit"] : kickMoveArray]];
+    
+    NSMutableArray * punchMoveArray = [[NSMutableArray alloc] init];
+    NSMutableArray * punchHelperArray = [self.manager getMatchingMovesHelper: Punch];
+    for(int i = 0; i < punchHelperArray.count; i++) {
+        CellMenuItem * m = [[CellMenuItem alloc] init: false : [[MoveCell alloc] initWithCell:punchHelperArray[i] : [self.editTable dequeueReusableCellWithIdentifier:@"editsub"]]];
+        [punchMoveArray addObject: m];
+    }
+    punchHeader = [[CellMenuItem alloc] init:true :[[HeaderCell alloc] initWithCell:@"Punch" :[self.editTable dequeueReusableCellWithIdentifier:@"edit"] : punchMoveArray]];
+    
+    NSMutableArray * headMoveArray = [[NSMutableArray alloc] init];
+    NSMutableArray * headHelperArray = [self.manager getMatchingMovesHelper: HeadMovement];
+    for(int i = 0; i < headHelperArray.count; i++) {
+        CellMenuItem * m = [[CellMenuItem alloc] init: false : [[MoveCell alloc] initWithCell:headHelperArray[i] : [self.editTable dequeueReusableCellWithIdentifier:@"editsub"]]];
+        [headMoveArray addObject: m];
+    }
+    headHeader = [[CellMenuItem alloc] init:true :[[HeaderCell alloc] initWithCell:@"Head Movement" :[self.editTable dequeueReusableCellWithIdentifier:@"edit"] : headMoveArray]];
+    
+    NSMutableArray * footMoveArray = [[NSMutableArray alloc] init];
+    NSMutableArray * footHelperArray = [self.manager getMatchingMovesHelper: FootMovement];
+    for(int i = 0; i < footHelperArray.count; i++) {
+        CellMenuItem * m = [[CellMenuItem alloc] init: false : [[MoveCell alloc] initWithCell:footHelperArray[i] : [self.editTable dequeueReusableCellWithIdentifier:@"editsub"]]];
+        [footMoveArray addObject: m];
+    }
+    footHeader = [[CellMenuItem alloc] init:true :[[HeaderCell alloc] initWithCell:@"Foot Movement" :[self.editTable dequeueReusableCellWithIdentifier:@"edit"] : footMoveArray]];
+    
+    self.editHeaderArray = @[kickHeader, punchHeader, headHeader, footHeader];
 }
 
 - (IBAction)onStepperChange:(UIStepper *)sender {
@@ -65,15 +108,20 @@
     [self.view addSubview: _popupWindow];
     _popupWindow.center = self.view.center;
     
-    //init edit menu
-    _editArray = @[@"Kicks", @"Punches", @"Head Movement", @"Foot Work"];
+    //init actual menu array
+    self.editActualArray = [[NSMutableArray alloc] init];
+    for(CellMenuItem * item in _editHeaderArray) {
+        [self.editActualArray addObject: (HeaderCell *) item];
+        for(CellMenuItem * subItem in [(HeaderCell *) item.cell moveCellArray]){
+            [self.editActualArray addObject:subItem];
+        }
+    }
 }
 
 - (IBAction)dismissPopupWindow:(UIButton *)sender {
     [self.popupWindow removeFromSuperview];
     [self.view.subviews[self.view.subviews.count - 1] removeFromSuperview];
 }
-
 
 #pragma mark - UITableView DataSource Methods
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -83,7 +131,7 @@
         }
         return _moveArray.count;
     } else {
-        return 4;
+        return _editActualArray.count;
     }
 }
 
@@ -95,13 +143,16 @@
         cell.textLabel.text = [(Move *) self.moveArray[indexPath.row] name];
         cell.detailTextLabel.text = @"";
         return cell;
-    } else if(tableView == self.editTable) {
-        static NSString * cellId = @"edit";
-        HeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-        cell.titleLabel.text = self.editArray[indexPath.row];
-        return cell;
+//    } else if(tableView == self.editTable) {
+    } else {
+        if([(CellMenuItem *) [self.editActualArray objectAtIndex:indexPath.row] isHeader]) {
+            HeaderCell * cell = (HeaderCell *) [(CellMenuItem *)[self.editActualArray objectAtIndex:indexPath.row] cell];
+            return cell;
+        } else {
+            MoveCell * cell = (MoveCell *) [(CellMenuItem *)[self.editActualArray objectAtIndex:indexPath.row] cell];
+            return cell;
+        }
     }
-    return NULL;
 }
 
 @end

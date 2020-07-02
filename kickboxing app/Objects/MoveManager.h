@@ -15,5 +15,5 @@
 -(NSMutableArray *)generate: (int) size;
 @property NSMutableArray * moveList;
 @property MoveDistance playerDistance;
-
+-(NSMutableArray *)getMatchingMovesHelper: (int) bitmask;
 @end

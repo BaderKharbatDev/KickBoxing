@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="32N-6P-iLn">
-                                <rect key="frame" x="44.666666666666657" y="123" width="325" height="164"/>
+                                <rect key="frame" x="44.666666666666657" y="123" width="325" height="108"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleAspectFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="KkQ-it-SOU">
                                         <rect key="frame" x="0.0" y="0.0" width="325" height="32"/>
@@ -42,25 +42,8 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="OoE-ky-kkf">
-                                        <rect key="frame" x="0.0" y="58" width="325" height="30"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difficulty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEr-V6-suN">
-                                                <rect key="frame" x="0.0" y="0.0" width="114" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="6y0-eb-R8r">
-                                                <rect key="frame" x="123" y="0.0" width="204" height="31"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="200" id="KS4-n5-Lbg"/>
-                                                </constraints>
-                                            </slider>
-                                        </subviews>
-                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWF-SL-6er">
-                                        <rect key="frame" x="0.0" y="114" width="325" height="50"/>
+                                        <rect key="frame" x="0.0" y="58" width="325" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="yUW-c2-269"/>
@@ -91,7 +74,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CyB-fi-cIB">
-                                <rect key="frame" x="44.666666666666657" y="317" width="325" height="445"/>
+                                <rect key="frame" x="44.666666666666657" y="261" width="325" height="445"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="325" id="Y3j-DB-ujd"/>

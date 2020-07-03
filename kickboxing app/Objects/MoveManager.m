@@ -67,9 +67,10 @@
 
 -(NSMutableArray *)generate: (int) size {
     NSMutableArray *rv = [[NSMutableArray alloc] init];
-//    NSLog(@"%d", [[[(Move *)self.moveList[0] nextArray] objectAtIndex:0] intValue]);
-    NSUInteger r = arc4random_uniform(self.moveList.count);
-    Move * current = self.moveList[r];
+
+    NSMutableArray * activeMoveList = [self getActiveMoveHelper];
+    NSUInteger r = arc4random_uniform(activeMoveList.count);
+    Move * current = activeMoveList[r];
     [rv addObject:current];
     
     size--;
@@ -78,6 +79,15 @@
         [rv addObject:current];
     }
 
+    return rv;
+}
+
+-(NSMutableArray *) getActiveMoveHelper {
+    NSMutableArray * rv = [[NSMutableArray alloc] init];
+    for(int i = 0; i < self.moveList.count; i++) {
+        if([(Move *)self.moveList[i] isActive])
+            [rv addObject:self.moveList[i]];
+    }
     return rv;
 }
 

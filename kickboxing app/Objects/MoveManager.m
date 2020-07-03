@@ -56,7 +56,7 @@
         [self.moveList addObject: [[Move alloc] initWithParams:@"Slide in" : FootMovement : Easy : Far :
                                    @[[[CategoryItem alloc] init: Punch :3], [[CategoryItem alloc] init: Kick | Close :2], [[CategoryItem alloc] init: HeadMovement :1]] ]];
         [self.moveList addObject: [[Move alloc] initWithParams:@"Slide out" : FootMovement : Easy : Close :
-                                   @[[[CategoryItem alloc] init: Kick | Far :1]] ]];
+                                   @[[[CategoryItem alloc] init: Kick :2], [[CategoryItem alloc] init: Punch : 2], [[CategoryItem alloc] init: FootMovement :1]] ]];
         [self.moveList addObject: [[Move alloc] initWithParams:@"Slide left" : FootMovement : Easy : Close | Far :
                                    @[[[CategoryItem alloc] init: Kick | Close :3], [[CategoryItem alloc] init: HeadMovement :1], [[CategoryItem alloc] init: Punch :3]] ]];
         [self.moveList addObject: [[Move alloc] initWithParams:@"Slide right" : FootMovement : Easy : Close | Far :
@@ -88,8 +88,11 @@
         NSArray *available = [self getMatchingMovesHelper: [ [(CategoryItem *)[[lastMove nextArray] objectAtIndex:i] category] intValue] ];
         //adds every found move for the bitmask n (weight value) amount of times
         for( Move* move in available) {
-            for(int e = 0; e < [(CategoryItem *)[[lastMove nextArray] objectAtIndex:i] weight]; e++)
-                [availableMoves addObject:move];
+            if(move.isActive) {
+                for(int e = 0; e < [(CategoryItem *)[[lastMove nextArray] objectAtIndex:i] weight]; e++) {
+                    [availableMoves addObject:move];
+                }
+            }
         }
     }
     NSUInteger r = arc4random_uniform(availableMoves.count);

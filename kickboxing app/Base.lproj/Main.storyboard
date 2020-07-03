@@ -163,11 +163,11 @@
                             </connections>
                         </button>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gc5-m2-kWJ">
-                            <rect key="frame" x="33" y="94" width="296" height="473"/>
+                            <rect key="frame" x="33" y="144" width="296" height="400"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="296" id="eMh-27-N2n"/>
-                                <constraint firstAttribute="height" constant="473" id="fdn-4g-iDc"/>
+                                <constraint firstAttribute="height" constant="400" id="fdn-4g-iDc"/>
                             </constraints>
                             <prototypes>
                                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="edit" id="ac5-QD-aop" customClass="HeaderCell">
@@ -186,6 +186,7 @@
                                                 <state key="normal" image="arrowright.png"/>
                                                 <connections>
                                                     <action selector="arrowPressed:" destination="ac5-QD-aop" eventType="touchUpInside" id="cIC-mi-86H"/>
+                                                    <action selector="didDropDownPressed:forEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bwp-wk-HpO"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOD-6N-vt2">
@@ -228,7 +229,7 @@
                                                     <action selector="checkBoxPressed:" destination="OKd-bb-0aL" eventType="touchUpInside" id="nV1-kD-Ak8"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uv-3Q-xk2">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uv-3Q-xk2">
                                                 <rect key="frame" x="120" y="11" width="42" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -238,6 +239,7 @@
                                         <constraints>
                                             <constraint firstItem="3eb-S6-fav" firstAttribute="centerY" secondItem="nxI-5k-98f" secondAttribute="centerY" id="5h7-oj-WI5"/>
                                             <constraint firstItem="3eb-S6-fav" firstAttribute="leading" secondItem="nxI-5k-98f" secondAttribute="leading" constant="74" id="KUW-6X-vvb"/>
+                                            <constraint firstItem="2uv-3Q-xk2" firstAttribute="centerY" secondItem="nxI-5k-98f" secondAttribute="centerY" id="WqY-2f-Bwf"/>
                                             <constraint firstItem="2uv-3Q-xk2" firstAttribute="leading" secondItem="3eb-S6-fav" secondAttribute="trailing" constant="18" id="eV7-yM-WBe"/>
                                             <constraint firstItem="2uv-3Q-xk2" firstAttribute="leading" secondItem="nxI-5k-98f" secondAttribute="leading" constant="120" id="kuP-ka-7ID"/>
                                         </constraints>
@@ -253,15 +255,23 @@
                                 <outlet property="delegate" destination="BYZ-38-t0r" id="iWf-ia-PH6"/>
                             </connections>
                         </tableView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Move Filter Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJF-ER-Qjq">
+                            <rect key="frame" x="105.33333333333333" y="94" width="151.66666666666669" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="XJF-ER-Qjq" firstAttribute="top" secondItem="6zC-ZX-d9q" secondAttribute="top" constant="50" id="5yi-tM-Ds5"/>
                         <constraint firstItem="6zC-ZX-d9q" firstAttribute="bottom" secondItem="TJp-hK-b2W" secondAttribute="bottom" constant="20" id="6KS-Mu-i82"/>
                         <constraint firstItem="Gc5-m2-kWJ" firstAttribute="leading" secondItem="6zC-ZX-d9q" secondAttribute="leading" constant="33" id="BJn-Ks-5E3"/>
                         <constraint firstItem="TJp-hK-b2W" firstAttribute="leading" secondItem="6zC-ZX-d9q" secondAttribute="leading" constant="102" id="Mkz-Z6-QBh"/>
                         <constraint firstItem="6zC-ZX-d9q" firstAttribute="trailing" secondItem="TJp-hK-b2W" secondAttribute="trailing" constant="101" id="WY0-gI-UnP"/>
                         <constraint firstItem="6zC-ZX-d9q" firstAttribute="trailing" secondItem="Gc5-m2-kWJ" secondAttribute="trailing" constant="33" id="anu-R5-sCI"/>
-                        <constraint firstItem="Gc5-m2-kWJ" firstAttribute="top" secondItem="6zC-ZX-d9q" secondAttribute="top" constant="50" id="tCb-9t-4OU"/>
+                        <constraint firstItem="XJF-ER-Qjq" firstAttribute="centerX" secondItem="6zC-ZX-d9q" secondAttribute="centerX" id="by4-5u-kDT"/>
+                        <constraint firstItem="Gc5-m2-kWJ" firstAttribute="top" secondItem="6zC-ZX-d9q" secondAttribute="top" constant="100" id="tCb-9t-4OU"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="6zC-ZX-d9q"/>
                     <userDefinedRuntimeAttributes>

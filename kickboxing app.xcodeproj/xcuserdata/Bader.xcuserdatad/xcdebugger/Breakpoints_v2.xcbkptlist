@@ -39,16 +39,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "33ED85F1-031D-447A-8087-3F75C8D2C571"
-            shouldBeEnabled = "No"
+            uuid = "C14BB113-218D-4531-9EB2-6A88C16D844E"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kickboxing app/ViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "-modalPopupButton:"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "-dismissPopupWindow:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B507B232-7B28-4137-9C25-FDA1F8478A25"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "kickboxing app/Objects/MoveManager.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "-getNextMove:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

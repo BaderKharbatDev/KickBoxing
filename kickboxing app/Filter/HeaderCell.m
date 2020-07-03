@@ -26,11 +26,7 @@
 }
 
 - (IBAction)arrowPressed:(UIButton *)sender {
-    _isOpen = !_isOpen;
-    if(_isOpen)
-        [self.arrowButton setImage:[UIImage imageNamed:@"arrowdown"] forState:UIControlStateNormal];
-    else
-        [self.arrowButton setImage:[UIImage imageNamed:@"arrowright"] forState:UIControlStateNormal];
+    //nothin
 }
 
 

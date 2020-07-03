@@ -43,6 +43,57 @@
     [self setupEditTable];
 }
 
+- (IBAction)onStepperChange:(UIStepper *)sender {
+    self.countLabel.text = [NSString stringWithFormat:@"%1.0f", self.stepper.value];
+}
+
+- (IBAction)generateListOfMoves:(UIButton *)sender {
+    self.moveArray = [self.manager generate:self.stepper.value];
+    [self.table reloadData];
+}
+
+//---------------MODAL POP UP METHODS------------------------------------------
+- (IBAction)modalPopupButton:(UIButton *)sender {
+    //add window
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    UIVisualEffectView * blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    blurEffectView.alpha = 0.5f;
+    blurEffectView.frame = self.view.frame;
+    [self.view addSubview:blurEffectView];
+    [self.view addSubview: _popupWindow];
+    _popupWindow.center = self.view.center;
+}
+
+- (IBAction)dismissPopupWindow:(UIButton *)sender {
+    [self.popupWindow removeFromSuperview];
+    [self.view.subviews[self.view.subviews.count - 1] removeFromSuperview];
+}
+
+- (IBAction)didDropDownPressed:(UIButton *)sender forEvent:(UIEvent *)event{
+    int index = 0;
+    for(int i = 0; i < self.editActualArray.count; i++) {
+        if([(CellMenuItem *) self.editActualArray[i] isHeader] && [(HeaderCell *)[(CellMenuItem *) self.editActualArray[i] cell] arrowButton] == sender) {
+            index = i;
+            break;
+        }
+    }
+    HeaderCell * selCell = (HeaderCell *)[(CellMenuItem *) self.editActualArray[index] cell];
+    if([selCell isOpen]) {
+        [self.editActualArray removeObjectsInRange: NSMakeRange(index+1, selCell.moveCellArray.count)];
+    } else {
+        for(int i = 0; i < [selCell moveCellArray].count; i++){
+            [self.editActualArray insertObject: [selCell moveCellArray][i] atIndex: index+1+i];
+        }
+    }
+    selCell.isOpen = !selCell.isOpen;
+    if(selCell.isOpen)
+        [sender setImage:[UIImage imageNamed:@"arrowdown"] forState:UIControlStateNormal];
+    else
+        [sender setImage:[UIImage imageNamed:@"arrowright"] forState:UIControlStateNormal];
+    [self.editTable reloadData];
+}
+
+
 -(void) setupEditTable {
     CellMenuItem * kickHeader;
     CellMenuItem * punchHeader;
@@ -55,7 +106,7 @@
         CellMenuItem * m = [[CellMenuItem alloc] init: false : [[MoveCell alloc] initWithCell:kickHelperArray[i] : [self.editTable dequeueReusableCellWithIdentifier:@"editsub"]]];
         [kickMoveArray addObject: m];
     }
-    kickHeader = [[CellMenuItem alloc] init:true :[[HeaderCell alloc] initWithCell:@"Kick" :[self.editTable dequeueReusableCellWithIdentifier:@"edit"] : kickMoveArray]];
+    kickHeader = [[CellMenuItem alloc] init:true :[[HeaderCell alloc] initWithCell:@"Kicks" :[self.editTable dequeueReusableCellWithIdentifier:@"edit"] : kickMoveArray]];
     
     NSMutableArray * punchMoveArray = [[NSMutableArray alloc] init];
     NSMutableArray * punchHelperArray = [self.manager getMatchingMovesHelper: Punch];
@@ -63,7 +114,7 @@
         CellMenuItem * m = [[CellMenuItem alloc] init: false : [[MoveCell alloc] initWithCell:punchHelperArray[i] : [self.editTable dequeueReusableCellWithIdentifier:@"editsub"]]];
         [punchMoveArray addObject: m];
     }
-    punchHeader = [[CellMenuItem alloc] init:true :[[HeaderCell alloc] initWithCell:@"Punch" :[self.editTable dequeueReusableCellWithIdentifier:@"edit"] : punchMoveArray]];
+    punchHeader = [[CellMenuItem alloc] init:true :[[HeaderCell alloc] initWithCell:@"Punches" :[self.editTable dequeueReusableCellWithIdentifier:@"edit"] : punchMoveArray]];
     
     NSMutableArray * headMoveArray = [[NSMutableArray alloc] init];
     NSMutableArray * headHelperArray = [self.manager getMatchingMovesHelper: HeadMovement];
@@ -82,46 +133,15 @@
     footHeader = [[CellMenuItem alloc] init:true :[[HeaderCell alloc] initWithCell:@"Foot Movement" :[self.editTable dequeueReusableCellWithIdentifier:@"edit"] : footMoveArray]];
     
     self.editHeaderArray = @[kickHeader, punchHeader, headHeader, footHeader];
-}
-
-- (IBAction)onStepperChange:(UIStepper *)sender {
-    self.countLabel.text = [NSString stringWithFormat:@"%1.0f", self.stepper.value];
-}
-
-- (IBAction)generateListOfMoves:(UIButton *)sender {
-    self.moveArray = [self.manager generate:self.stepper.value];
-    [self.table reloadData];
     
-    for(int i = 0; i < self.moveArray.count; i++) {
-        NSLog(@"%@", [(Move *) self.moveArray[i] name]);
-    }
-    NSLog(@"------");
-}
-
-- (IBAction)modalPopupButton:(UIButton *)sender {
-    //add window
-    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-    UIVisualEffectView * blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    blurEffectView.alpha = 0.5f;
-    blurEffectView.frame = self.view.frame;
-    [self.view addSubview:blurEffectView];
-    [self.view addSubview: _popupWindow];
-    _popupWindow.center = self.view.center;
-    
-    //init actual menu array
+    //init menu containing the edit window cellmenuitems
     self.editActualArray = [[NSMutableArray alloc] init];
-    for(CellMenuItem * item in _editHeaderArray) {
+    for(CellMenuItem * item in self.editHeaderArray) {
         [self.editActualArray addObject: (HeaderCell *) item];
-        for(CellMenuItem * subItem in [(HeaderCell *) item.cell moveCellArray]){
-            [self.editActualArray addObject:subItem];
-        }
     }
 }
 
-- (IBAction)dismissPopupWindow:(UIButton *)sender {
-    [self.popupWindow removeFromSuperview];
-    [self.view.subviews[self.view.subviews.count - 1] removeFromSuperview];
-}
+//--------------------TABLE VIEW METHODS------------------------------
 
 #pragma mark - UITableView DataSource Methods
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

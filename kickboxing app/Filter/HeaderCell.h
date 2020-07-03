@@ -18,8 +18,10 @@
 @interface HeaderCell : UITableViewCell
 -(id)initWithCell: (NSString *) title : (UITableViewCell *) cell : (NSMutableArray *) moveCellArray;
 - (IBAction)arrowPressed:(UIButton *)sender;
+-(void) updateActiveNumber;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UIButton *arrowButton;
+@property (strong, nonatomic) IBOutlet UILabel *activeCountLabel;
 @property BOOL isOpen;
 @property NSMutableArray * moveCellArray;
 @end

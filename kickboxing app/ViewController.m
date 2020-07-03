@@ -14,7 +14,11 @@
 @property (strong, nonatomic) IBOutlet UITableView *table;
 @property (strong, nonatomic) IBOutlet UITableView *editTable;
 @property (strong, nonatomic) IBOutlet UIButton *editButton;
+
+//modal windows
 @property (strong, nonatomic) IBOutlet UIView *popupWindow;
+@property (strong, nonatomic) IBOutlet UIView *warningWindow;
+
 @property NSMutableArray * moveArray;
 @property NSArray * editHeaderArray;
 @property NSMutableArray * editActualArray;
@@ -48,8 +52,12 @@
 }
 
 - (IBAction)generateListOfMoves:(UIButton *)sender {
-    self.moveArray = [self.manager generate:self.stepper.value];
-    [self.table reloadData];
+    @try {
+        self.moveArray = [self.manager generate:self.stepper.value];
+        [self.table reloadData];
+    } @catch (NSException *exception) {
+        [self displayWarningWindow];
+    }
 }
 
 //---------------MODAL POP UP METHODS------------------------------------------
@@ -66,6 +74,21 @@
 
 - (IBAction)dismissPopupWindow:(UIButton *)sender {
     [self.popupWindow removeFromSuperview];
+    [self.view.subviews[self.view.subviews.count - 1] removeFromSuperview];
+}
+
+-(void) displayWarningWindow {
+    //add window
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    UIVisualEffectView * blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    blurEffectView.alpha = 0.5f;
+    blurEffectView.frame = self.view.frame;
+    [self.view addSubview:blurEffectView];
+    [self.view addSubview: self.warningWindow];
+    self.warningWindow.center = self.view.center;
+}
+- (IBAction)warningWindowDismissed:(UIButton *)sender {
+    [self.warningWindow removeFromSuperview];
     [self.view.subviews[self.view.subviews.count - 1] removeFromSuperview];
 }
 
@@ -92,6 +115,21 @@
         [sender setImage:[UIImage imageNamed:@"arrowright"] forState:UIControlStateNormal];
     [self.editTable reloadData];
 }
+
+//Called whenever a move is enabled or disabled
+//ensures each header cell updates its texty
+- (IBAction)updateActiveStatusText:(UIButton *)sender {
+    int index = 0;
+    for(int i = 0; i < self.editActualArray.count; i++) {
+        if([(CellMenuItem *) self.editActualArray[i] isHeader] && [(HeaderCell *)[(CellMenuItem *) self.editActualArray[i] cell] arrowButton] == sender) {
+            index = i;
+            break;
+        }
+    }
+    HeaderCell * selCell = (HeaderCell *)[(CellMenuItem *) self.editActualArray[index] cell];
+    [selCell updateActiveNumber];
+}
+
 
 
 -(void) setupEditTable {

@@ -14,11 +14,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "Move.h"
+#import "../Objects/Move.h"
 
 @interface MoveCell : UITableViewCell
 -(id)initWithCell: (Move *) move : (UITableViewCell *) cell;
 - (IBAction)checkBoxPressed:(UIButton *)sender;
+-(void)changeActiveStatus;
 @property (strong, nonatomic) IBOutlet UIButton *boxButton;
 @property (strong, nonatomic) IBOutlet UILabel * title;
 @property Move * move;

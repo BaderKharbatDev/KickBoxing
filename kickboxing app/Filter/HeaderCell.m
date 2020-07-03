@@ -7,6 +7,9 @@
 //
 
 #import "HeaderCell.h"
+#import "../Objects/Move.h"
+#import "CellMenuItem.h"
+#import "MoveCell.h"
 
 @interface HeaderCell ()
 
@@ -21,12 +24,23 @@
         self.isOpen = false;
         [self.arrowButton setImage: [UIImage imageNamed:@"arrowright"] forState:UIControlStateNormal];
         self.moveCellArray = moveCellArray;
+        [self updateActiveNumber];
     }
     return self;
 }
 
 - (IBAction)arrowPressed:(UIButton *)sender {
     //nothin
+}
+
+-(void) updateActiveNumber {
+    int total = 0;
+    for(int i = 0; i < self.moveCellArray.count; i++) {
+        if([[(MoveCell *)[(CellMenuItem *) self.moveCellArray[i] cell] move] isActive])
+            total++;
+    }
+    //update label
+    self.activeCountLabel.text = [NSString stringWithFormat:@"%d/%lu Enabled", total, (unsigned long)self.moveCellArray.count];
 }
 
 

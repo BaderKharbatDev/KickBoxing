@@ -69,6 +69,9 @@
     NSMutableArray *rv = [[NSMutableArray alloc] init];
 
     NSMutableArray * activeMoveList = [self getActiveMoveHelper];
+    if(activeMoveList.count == 0) {
+        [NSException raise:@"Move Generating Warning" format:@"No Moves Are Currently Selected"];
+    }
     NSUInteger r = arc4random_uniform(activeMoveList.count);
     Move * current = activeMoveList[r];
     [rv addObject:current];

@@ -27,13 +27,16 @@
 }
 
 - (IBAction)checkBoxPressed:(UIButton *)sender {
+    [self changeActiveStatus];
+}
+
+-(void) changeActiveStatus {
     self.move.isActive = !self.move.isActive;
     if(self.move.isActive)
         [self.boxButton setImage: [UIImage imageNamed:@"checked"] forState:UIControlStateNormal];
     else
         [self.boxButton setImage: [UIImage imageNamed:@"unchecked"] forState:UIControlStateNormal];
 }
-
 
 @end
 

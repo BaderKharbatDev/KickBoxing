@@ -139,6 +139,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="342" height="598"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DEb-Gr-qEo">
+                            <rect key="frame" x="23" y="143" width="296" height="1"/>
+                            <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="YTY-YH-ZYb"/>
+                                <constraint firstAttribute="width" constant="296" id="w3X-ee-nAT"/>
+                            </constraints>
+                        </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJp-hK-b2W">
                             <rect key="frame" x="102" y="548" width="139" height="30"/>
                             <state key="normal" title="Done"/>
@@ -259,16 +267,28 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ktf-AA-mSd">
+                            <rect key="frame" x="23" y="544" width="296" height="1"/>
+                            <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="296" id="7dg-gH-PwI"/>
+                                <constraint firstAttribute="height" constant="1" id="UYZ-pZ-dUh"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="ktf-AA-mSd" firstAttribute="top" secondItem="Gc5-m2-kWJ" secondAttribute="bottom" id="4Tm-hu-3mo"/>
                         <constraint firstItem="XJF-ER-Qjq" firstAttribute="top" secondItem="6zC-ZX-d9q" secondAttribute="top" constant="50" id="5yi-tM-Ds5"/>
                         <constraint firstItem="6zC-ZX-d9q" firstAttribute="bottom" secondItem="TJp-hK-b2W" secondAttribute="bottom" constant="20" id="6KS-Mu-i82"/>
                         <constraint firstItem="TJp-hK-b2W" firstAttribute="leading" secondItem="6zC-ZX-d9q" secondAttribute="leading" constant="102" id="Mkz-Z6-QBh"/>
                         <constraint firstItem="Gc5-m2-kWJ" firstAttribute="centerX" secondItem="6zC-ZX-d9q" secondAttribute="centerX" id="Tt3-3M-x2F"/>
+                        <constraint firstItem="Gc5-m2-kWJ" firstAttribute="top" secondItem="DEb-Gr-qEo" secondAttribute="bottom" id="WD8-ys-ocj"/>
                         <constraint firstItem="6zC-ZX-d9q" firstAttribute="trailing" secondItem="TJp-hK-b2W" secondAttribute="trailing" constant="101" id="WY0-gI-UnP"/>
                         <constraint firstItem="XJF-ER-Qjq" firstAttribute="centerX" secondItem="6zC-ZX-d9q" secondAttribute="centerX" id="by4-5u-kDT"/>
+                        <constraint firstItem="DEb-Gr-qEo" firstAttribute="centerX" secondItem="6zC-ZX-d9q" secondAttribute="centerX" id="db7-WX-ehB"/>
                         <constraint firstItem="Gc5-m2-kWJ" firstAttribute="top" secondItem="6zC-ZX-d9q" secondAttribute="top" constant="100" id="tCb-9t-4OU"/>
+                        <constraint firstItem="ktf-AA-mSd" firstAttribute="centerX" secondItem="6zC-ZX-d9q" secondAttribute="centerX" id="zVA-Q6-7B0"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="6zC-ZX-d9q"/>
                     <userDefinedRuntimeAttributes>

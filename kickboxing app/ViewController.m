@@ -119,15 +119,9 @@
 //Called whenever a move is enabled or disabled
 //ensures each header cell updates its texty
 - (IBAction)updateActiveStatusText:(UIButton *)sender {
-    int index = 0;
-    for(int i = 0; i < self.editActualArray.count; i++) {
-        if([(CellMenuItem *) self.editActualArray[i] isHeader] && [(HeaderCell *)[(CellMenuItem *) self.editActualArray[i] cell] arrowButton] == sender) {
-            index = i;
-            break;
-        }
+    for( CellMenuItem * item in self.editHeaderArray) {
+        [(HeaderCell *)[item cell] updateActiveNumber];
     }
-    HeaderCell * selCell = (HeaderCell *)[(CellMenuItem *) self.editActualArray[index] cell];
-    [selCell updateActiveNumber];
 }
 
 
@@ -175,7 +169,7 @@
     //init menu containing the edit window cellmenuitems
     self.editActualArray = [[NSMutableArray alloc] init];
     for(CellMenuItem * item in self.editHeaderArray) {
-        [self.editActualArray addObject: (HeaderCell *) item];
+        [self.editActualArray addObject: (CellMenuItem *) item];
     }
 }
 

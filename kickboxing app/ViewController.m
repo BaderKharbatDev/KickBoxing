@@ -41,8 +41,8 @@
     self.stepper.value = 4;
     self.countLabel.text = [NSString stringWithFormat:@"%1.0f", self.stepper.value];
     [self.table setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    [self.editTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.table.allowsSelection = false;
+    [self.editTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.editTable.allowsSelection = false;
     [self setupEditTable];
 }
@@ -205,6 +205,14 @@
             return cell;
         }
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   if (tableView == self.table) {
+      return 60;
+   }
+   return 44;
 }
 
 @end

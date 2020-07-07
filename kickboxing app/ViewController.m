@@ -23,6 +23,9 @@
 @property NSArray * editHeaderArray;
 @property NSMutableArray * editActualArray;
 @property MoveManager * manager;
+
+//style only objects
+@property (strong, nonatomic) IBOutlet UIView *backGroundUI;
 @end
 
 @implementation ViewController
@@ -44,6 +47,9 @@
     self.table.allowsSelection = false;
     [self.editTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.editTable.allowsSelection = false;
+    self.backGroundUI.layer.shadowOffset = CGSizeMake(0, 5);
+    self.backGroundUI.layer.shadowRadius = 5;
+    self.backGroundUI.layer.shadowOpacity = 0.3;
     [self setupEditTable];
 }
 
@@ -54,7 +60,9 @@
 - (IBAction)generateListOfMoves:(UIButton *)sender {
     @try {
         self.moveArray = [self.manager generate:self.stepper.value];
-        [self.table reloadData];
+//        [self.table reloadData];
+        [self.table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+
     } @catch (NSException *exception) {
         [self displayWarningWindow];
     }
@@ -190,12 +198,8 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     if(tableView == self.table) {
-        static NSString * cellId = @"cell";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-        cell.textLabel.text = [(Move *) self.moveArray[indexPath.row] name];
-        cell.detailTextLabel.text = @"";
+        MainCell *cell = [[MainCell alloc] initWithCell: (Move *) self.moveArray[indexPath.row] : [tableView dequeueReusableCellWithIdentifier: @"cell"]];
         return cell;
-//    } else if(tableView == self.editTable) {
     } else {
         if([(CellMenuItem *) [self.editActualArray objectAtIndex:indexPath.row] isHeader]) {
             HeaderCell * cell = (HeaderCell *) [(CellMenuItem *)[self.editActualArray objectAtIndex:indexPath.row] cell];
@@ -210,7 +214,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
    if (tableView == self.table) {
-      return 60;
+      return 80;
    }
    return 44;
 }

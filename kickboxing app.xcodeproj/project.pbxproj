@@ -14,6 +14,8 @@
 		1E1367EB24ACD8AE004BB87F /* arrowright.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1367E724ACD8AE004BB87F /* arrowright.png */; };
 		1E1367EE24AE3ADB004BB87F /* MoveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1367ED24AE3ADB004BB87F /* MoveCell.m */; };
 		1E1367F124AE5B43004BB87F /* CellMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1367F024AE5B43004BB87F /* CellMenuItem.m */; };
+		1E1367F424B41122004BB87F /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1367F224B41122004BB87F /* MainCell.m */; };
+		1E1367F624B413DB004BB87F /* punchplaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1367F524B413DB004BB87F /* punchplaceholder.png */; };
 		1E28E6B024A4272200E24311 /* CategoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E28E6AF24A4272200E24311 /* CategoryItem.m */; };
 		1E9E674E2471FCB0006595EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9E674D2471FCB0006595EF /* AppDelegate.m */; };
 		1E9E67512471FCB0006595EF /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9E67502471FCB0006595EF /* SceneDelegate.m */; };
@@ -37,9 +39,12 @@
 		1E1367ED24AE3ADB004BB87F /* MoveCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoveCell.m; sourceTree = "<group>"; };
 		1E1367EF24AE5AE6004BB87F /* CellMenuItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CellMenuItem.h; sourceTree = "<group>"; };
 		1E1367F024AE5B43004BB87F /* CellMenuItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CellMenuItem.m; sourceTree = "<group>"; };
+		1E1367F224B41122004BB87F /* MainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCell.m; sourceTree = "<group>"; };
+		1E1367F324B41122004BB87F /* MainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCell.h; sourceTree = "<group>"; };
+		1E1367F524B413DB004BB87F /* punchplaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = punchplaceholder.png; sourceTree = "<group>"; };
 		1E28E6AE24A4270500E24311 /* CategoryItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryItem.h; sourceTree = "<group>"; };
 		1E28E6AF24A4272200E24311 /* CategoryItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryItem.m; sourceTree = "<group>"; };
-		1E9E67492471FCB0006595EF /* kickboxing app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kickboxing app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E9E67492471FCB0006595EF /* Combo Gen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Combo Gen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E9E674C2471FCB0006595EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1E9E674D2471FCB0006595EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1E9E674F2471FCB0006595EF /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
@@ -75,6 +80,7 @@
 				1E1367E624ACD8AE004BB87F /* arrowdown.png */,
 				1E1367E724ACD8AE004BB87F /* arrowright.png */,
 				1E1367E524ACD8AE004BB87F /* unchecked.png */,
+				1E1367F524B413DB004BB87F /* punchplaceholder.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -82,6 +88,8 @@
 		1E28E6BB24AC202E00E24311 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
+				1E1367F324B41122004BB87F /* MainCell.h */,
+				1E1367F224B41122004BB87F /* MainCell.m */,
 				1E1367E024AC2250004BB87F /* HeaderCell.h */,
 				1E1367E124AC2272004BB87F /* HeaderCell.m */,
 				1E1367EC24AD8B79004BB87F /* MoveCell.h */,
@@ -103,7 +111,7 @@
 		1E9E674A2471FCB0006595EF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1E9E67492471FCB0006595EF /* kickboxing app.app */,
+				1E9E67492471FCB0006595EF /* Combo Gen.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,7 +167,7 @@
 			);
 			name = "kickboxing app";
 			productName = "kickboxing app";
-			productReference = 1E9E67492471FCB0006595EF /* kickboxing app.app */;
+			productReference = 1E9E67492471FCB0006595EF /* Combo Gen.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -169,7 +177,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1130;
-				ORGANIZATIONNAME = Nebo;
+				ORGANIZATIONNAME = SUNSTRIDER;
 				TargetAttributes = {
 					1E9E67482471FCB0006595EF = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -206,6 +214,7 @@
 				1E9E67572471FCB0006595EF /* Main.storyboard in Resources */,
 				1E1367EB24ACD8AE004BB87F /* arrowright.png in Resources */,
 				1E1367EA24ACD8AE004BB87F /* arrowdown.png in Resources */,
+				1E1367F624B413DB004BB87F /* punchplaceholder.png in Resources */,
 				1E1367E824ACD8AE004BB87F /* checked.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,6 +235,7 @@
 				1E28E6B024A4272200E24311 /* CategoryItem.m in Sources */,
 				1E9E675F2471FCB1006595EF /* main.m in Sources */,
 				1E9E67702474291E006595EF /* Move.m in Sources */,
+				1E1367F424B41122004BB87F /* MainCell.m in Sources */,
 				1E9E67512471FCB0006595EF /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,8 +385,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "NEBO.kickboxing-app";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = SUNSTRIDER.generator.kickboxing;
+				PRODUCT_NAME = "Combo Gen";
 				SWIFT_OBJC_BRIDGING_HEADER = "kickboxing app/kickboxing app-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -397,8 +407,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "NEBO.kickboxing-app";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = SUNSTRIDER.generator.kickboxing;
+				PRODUCT_NAME = "Combo Gen";
 				SWIFT_OBJC_BRIDGING_HEADER = "kickboxing app/kickboxing app-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

@@ -49,7 +49,7 @@
     self.editTable.allowsSelection = false;
     self.backGroundUI.layer.shadowOffset = CGSizeMake(0, 5);
     self.backGroundUI.layer.shadowRadius = 5;
-    self.backGroundUI.layer.shadowOpacity = 0.3;
+    self.backGroundUI.layer.shadowOpacity = 0.15;
     [self setupEditTable];
 }
 

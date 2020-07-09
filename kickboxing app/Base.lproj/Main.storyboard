@@ -17,8 +17,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gc5-m2-kWJ">
-                                <rect key="frame" x="28" y="172" width="358" height="610"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="28" y="222" width="358" height="591"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="edit" id="ac5-QD-aop" customClass="HeaderCell">
                                         <rect key="frame" x="0.0" y="28" width="358" height="44.333332061767578"/>
@@ -68,6 +68,7 @@
                                                 <constraint firstItem="HOD-6N-vt2" firstAttribute="top" secondItem="c3Y-gl-fjS" secondAttribute="top" constant="11" id="zTR-gF-b0p"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <connections>
                                             <outlet property="activeCountLabel" destination="WWh-Jt-G5u" id="G5b-iL-lGU"/>
                                             <outlet property="arrowButton" destination="H9l-uI-hb0" id="zWg-gZ-LPH"/>
@@ -108,6 +109,7 @@
                                                 <constraint firstItem="2uv-3Q-xk2" firstAttribute="leading" secondItem="nxI-5k-98f" secondAttribute="leading" constant="120" id="kuP-ka-7ID"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <connections>
                                             <outlet property="boxButton" destination="3eb-S6-fav" id="s4Z-cZ-oNa"/>
                                             <outlet property="title" destination="2uv-3Q-xk2" id="Eey-9l-csk"/>
@@ -120,10 +122,10 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8PG-FI-cmt">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter Strike Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6r-qM-PU9">
-                                        <rect key="frame" x="40" y="95" width="280" height="35"/>
+                                        <rect key="frame" x="40" y="140" width="280" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="knG-RP-Z90"/>
                                             <constraint firstAttribute="height" constant="35" id="srb-xe-0of"/>
@@ -133,24 +135,24 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="N6r-qM-PU9" firstAttribute="top" secondItem="8PG-FI-cmt" secondAttribute="top" constant="95" id="IHO-yW-CSX"/>
-                                    <constraint firstAttribute="height" constant="150" id="M3s-Zi-PRa"/>
+                                    <constraint firstAttribute="height" constant="200" id="M3s-Zi-PRa"/>
+                                    <constraint firstAttribute="bottom" secondItem="N6r-qM-PU9" secondAttribute="bottom" constant="25" id="Rok-4q-eRg"/>
                                     <constraint firstItem="N6r-qM-PU9" firstAttribute="leading" secondItem="8PG-FI-cmt" secondAttribute="leading" constant="40" id="hgG-Rz-feQ"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YNN-VO-RM6">
-                                <rect key="frame" x="0.0" y="150" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="200" width="414" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="dh3-Zq-bHF"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="JN2-h6-AVz" firstAttribute="bottom" secondItem="Gc5-m2-kWJ" secondAttribute="bottom" constant="31" id="4aF-Vn-oGe"/>
+                            <constraint firstItem="JN2-h6-AVz" firstAttribute="bottom" secondItem="Gc5-m2-kWJ" secondAttribute="bottom" id="4aF-Vn-oGe"/>
                             <constraint firstItem="Gc5-m2-kWJ" firstAttribute="leading" secondItem="JN2-h6-AVz" secondAttribute="leading" constant="28" id="I1f-Wi-7oC"/>
                             <constraint firstItem="8PG-FI-cmt" firstAttribute="trailing" secondItem="JN2-h6-AVz" secondAttribute="trailing" id="ISt-SR-7Bx"/>
                             <constraint firstItem="YNN-VO-RM6" firstAttribute="leading" secondItem="JN2-h6-AVz" secondAttribute="leading" id="Q65-8N-0hH"/>
@@ -180,8 +182,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oz1-1H-Wb5">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="304"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tae-Ef-fan">
+                                <rect key="frame" x="0.0" y="304" width="414" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="d0Q-th-dE6"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JlZ-UO-xyj">
-                                <rect key="frame" x="20" y="107" width="374" height="155"/>
+                                <rect key="frame" x="20" y="164" width="374" height="155"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="32N-6P-iLn">
                                         <rect key="frame" x="24.666666666666657" y="27.666666666666657" width="325" height="100"/>
@@ -252,8 +265,8 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CyB-fi-cIB">
-                                <rect key="frame" x="20" y="287" width="374" height="501"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <rect key="frame" x="20" y="344" width="374" height="469"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="89" id="eOa-09-jOf" customClass="MainCell">
                                         <rect key="frame" x="0.0" y="28" width="374" height="89"/>
@@ -290,7 +303,7 @@
                                         </tableViewCellContentView>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <integer key="value" value="15"/>
+                                                <integer key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -301,7 +314,7 @@
                                 </prototypes>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="15"/>
+                                        <integer key="value" value="0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -309,16 +322,33 @@
                                     <outlet property="delegate" destination="gCv-17-L4f" id="n5R-kA-8xX"/>
                                 </connections>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wxs-0z-T7T">
+                                <rect key="frame" x="294" y="47" width="120" height="79"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="79" id="7Zm-oe-GWv"/>
+                                    <constraint firstAttribute="width" constant="120" id="Iqa-KA-9SP"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Oz1-1H-Wb5" firstAttribute="top" secondItem="mjz-eG-2I2" secondAttribute="top" id="4nn-ps-bKi"/>
+                            <constraint firstItem="Oz1-1H-Wb5" firstAttribute="trailing" secondItem="R8j-QD-hMQ" secondAttribute="trailing" id="7DE-dl-qyK"/>
+                            <constraint firstItem="Tae-Ef-fan" firstAttribute="leading" secondItem="R8j-QD-hMQ" secondAttribute="leading" id="AR9-OQ-LKv"/>
                             <constraint firstItem="CyB-fi-cIB" firstAttribute="top" secondItem="JlZ-UO-xyj" secondAttribute="bottom" constant="25" id="CLf-YS-egl"/>
-                            <constraint firstItem="JlZ-UO-xyj" firstAttribute="top" secondItem="R8j-QD-hMQ" secondAttribute="top" constant="63" id="Jy0-ec-HUq"/>
+                            <constraint firstItem="JlZ-UO-xyj" firstAttribute="top" secondItem="R8j-QD-hMQ" secondAttribute="top" constant="120" id="Jy0-ec-HUq"/>
                             <constraint firstItem="R8j-QD-hMQ" firstAttribute="trailing" secondItem="JlZ-UO-xyj" secondAttribute="trailing" constant="20" id="Klj-br-a4X"/>
+                            <constraint firstItem="Oz1-1H-Wb5" firstAttribute="leading" secondItem="R8j-QD-hMQ" secondAttribute="leading" id="SF8-gd-GqV"/>
+                            <constraint firstItem="R8j-QD-hMQ" firstAttribute="trailing" secondItem="Wxs-0z-T7T" secondAttribute="trailing" id="Sw7-j1-1wt"/>
+                            <constraint firstItem="R8j-QD-hMQ" firstAttribute="trailing" secondItem="Tae-Ef-fan" secondAttribute="trailing" id="Ubn-z1-vNh"/>
                             <constraint firstItem="R8j-QD-hMQ" firstAttribute="trailing" secondItem="CyB-fi-cIB" secondAttribute="trailing" constant="20" id="YNN-Zy-nDh"/>
-                            <constraint firstItem="R8j-QD-hMQ" firstAttribute="bottom" secondItem="CyB-fi-cIB" secondAttribute="bottom" constant="25" id="bOZ-jW-DBh"/>
+                            <constraint firstItem="R8j-QD-hMQ" firstAttribute="bottom" secondItem="CyB-fi-cIB" secondAttribute="bottom" id="bOZ-jW-DBh"/>
                             <constraint firstItem="CyB-fi-cIB" firstAttribute="leading" secondItem="R8j-QD-hMQ" secondAttribute="leading" constant="20" id="baz-mc-5DT"/>
                             <constraint firstItem="JlZ-UO-xyj" firstAttribute="leading" secondItem="R8j-QD-hMQ" secondAttribute="leading" constant="20" id="eEL-lS-bxg"/>
+                            <constraint firstItem="Wxs-0z-T7T" firstAttribute="top" secondItem="R8j-QD-hMQ" secondAttribute="top" constant="3" id="mqQ-kw-s9e"/>
+                            <constraint firstItem="Tae-Ef-fan" firstAttribute="top" secondItem="Oz1-1H-Wb5" secondAttribute="bottom" id="ply-Ou-tGw"/>
+                            <constraint firstItem="JlZ-UO-xyj" firstAttribute="top" secondItem="Oz1-1H-Wb5" secondAttribute="bottom" constant="-140" id="vDu-NH-TaC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="R8j-QD-hMQ"/>
                     </view>
@@ -408,6 +438,7 @@
         <image name="checked.png" width="50" height="50"/>
         <image name="error.png" width="48" height="48"/>
         <image name="filter.png" width="30" height="30"/>
+        <image name="logo.png" width="720" height="720"/>
         <image name="punchplaceholder.png" width="30" height="30"/>
     </resources>
 </document>

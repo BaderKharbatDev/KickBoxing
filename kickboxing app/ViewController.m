@@ -13,10 +13,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *countLabel;
 @property (strong, nonatomic) IBOutlet UITableView *table;
 @property (strong, nonatomic) IBOutlet UITableView *editTable;
-@property (strong, nonatomic) IBOutlet UIButton *editButton;
 
 //modal windows
-@property (strong, nonatomic) IBOutlet UIView *popupWindow;
 @property (strong, nonatomic) IBOutlet UIView *warningWindow;
 
 @property NSMutableArray * moveArray;
@@ -41,7 +39,7 @@
     //setup UI
     self.stepper.minimumValue = 1;
     self.stepper.maximumValue = 10;
-    self.stepper.value = 4;
+    self.stepper.value = 3;
     self.countLabel.text = [NSString stringWithFormat:@"%1.0f", self.stepper.value];
     [self.table setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.table.allowsSelection = false;
@@ -61,7 +59,7 @@
     @try {
         self.moveArray = [self.manager generate:self.stepper.value];
 //        [self.table reloadData];
-        [self.table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+        [self.table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 
     } @catch (NSException *exception) {
         [self displayWarningWindow];
@@ -69,21 +67,6 @@
 }
 
 //---------------MODAL POP UP METHODS------------------------------------------
-- (IBAction)modalPopupButton:(UIButton *)sender {
-    //add window
-    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-    UIVisualEffectView * blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    blurEffectView.alpha = 0.5f;
-    blurEffectView.frame = self.view.frame;
-    [self.view addSubview:blurEffectView];
-    [self.view addSubview: _popupWindow];
-    _popupWindow.center = self.view.center;
-}
-
-- (IBAction)dismissPopupWindow:(UIButton *)sender {
-    [self.popupWindow removeFromSuperview];
-    [self.view.subviews[self.view.subviews.count - 1] removeFromSuperview];
-}
 
 -(void) displayWarningWindow {
     //add window
@@ -199,6 +182,7 @@
     
     if(tableView == self.table) {
         MainCell *cell = [[MainCell alloc] initWithCell: (Move *) self.moveArray[indexPath.row] : [tableView dequeueReusableCellWithIdentifier: @"cell"]];
+        cell.title.text = [NSString stringWithFormat:@"%ld. %@", (long)indexPath.row + 1, cell.title.text];
         return cell;
     } else {
         if([(CellMenuItem *) [self.editActualArray objectAtIndex:indexPath.row] isHeader]) {
@@ -214,7 +198,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
    if (tableView == self.table) {
-      return 80;
+      return 60;
    }
    return 44;
 }

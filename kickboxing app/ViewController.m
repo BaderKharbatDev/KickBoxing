@@ -24,6 +24,7 @@
 
 //style only objects
 @property (strong, nonatomic) IBOutlet UIView *backGroundUI;
+@property (strong, nonatomic) IBOutlet UIView *topStyleView;
 @end
 
 @implementation ViewController
@@ -48,6 +49,9 @@
     self.backGroundUI.layer.shadowOffset = CGSizeMake(0, 5);
     self.backGroundUI.layer.shadowRadius = 5;
     self.backGroundUI.layer.shadowOpacity = 0.15;
+    self.topStyleView.layer.shadowOffset = CGSizeMake(0, 3);
+    self.topStyleView.layer.shadowRadius = 5;
+    self.topStyleView.layer.shadowOpacity = 0.5;
     [self setupEditTable];
 }
 

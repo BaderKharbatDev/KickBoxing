@@ -17,43 +17,43 @@
     if(self){
         self.moveList = [[NSMutableArray alloc] init];
         //read all moves into moveList
-        [self.moveList addObject: [[Move alloc] initWithParams:@"Knee" : Kick : Easy : Close :
+        [self.moveList addObject: [[Move alloc] initWithParams:@"Knee" : Kick : Easy : Close : true :
                                    @[[[CategoryItem alloc] init: Kick : 1],[[CategoryItem alloc] init: Punch : 5], [[CategoryItem alloc] init: HeadMovement : 1], [[CategoryItem alloc] init: FootMovement | Far :1]] ]];
-        [self.moveList addObject: [[Move alloc] initWithParams:@"Teep" : Kick : Easy : Close :
+        [self.moveList addObject: [[Move alloc] initWithParams:@"Teep" : Kick : Easy : Close : true :
                                    @[[[CategoryItem alloc] init: Kick : 3],[[CategoryItem alloc] init: Punch : 5], [[CategoryItem alloc] init: HeadMovement : 1], [[CategoryItem alloc] init: FootMovement :1]] ]];
-        [self.moveList addObject: [[Move alloc] initWithParams:@"Front Kick" : Kick : Easy : Far :
+        [self.moveList addObject: [[Move alloc] initWithParams:@"Front Kick" : Kick : Easy : Far : true :
                                    @[[[CategoryItem alloc] init: Kick : 3],[[CategoryItem alloc] init: Punch : 5], [[CategoryItem alloc] init: HeadMovement : 1], [[CategoryItem alloc] init: FootMovement :1]] ]];
-        [self.moveList addObject: [[Move alloc] initWithParams:@"Round Kick" : Kick : Easy : Far :
+        [self.moveList addObject: [[Move alloc] initWithParams:@"Round Kick" : Kick : Easy : Far : true :
                                    @[[[CategoryItem alloc] init: Kick : 3],[[CategoryItem alloc] init: Punch : 5], [[CategoryItem alloc] init: HeadMovement : 1], [[CategoryItem alloc] init: FootMovement :1]] ]];
-        [self.moveList addObject: [[Move alloc] initWithParams:@"Side Kick" : Kick :Normal : Far :
+        [self.moveList addObject: [[Move alloc] initWithParams:@"Side Kick" : Kick :Normal : Far : false :
                                    @[[[CategoryItem alloc] init: Kick | Close : 3],[[CategoryItem alloc] init: Punch : 5], [[CategoryItem alloc] init: HeadMovement : 1], [[CategoryItem alloc] init: FootMovement :1]] ]];
-        [self.moveList addObject: [[Move alloc] initWithParams:@"Turning side kick" : Kick : Hard : Far :
+        [self.moveList addObject: [[Move alloc] initWithParams:@"Turning side kick" : Kick : Hard : Far : false :
                                    @[[[CategoryItem alloc] init: Kick : 2],[[CategoryItem alloc] init: Punch : 5], [[CategoryItem alloc] init: HeadMovement : 1], [[CategoryItem alloc] init: FootMovement :1]] ]];
-        [self.moveList addObject: [[Move alloc] initWithParams:@"Jab" : Punch : Easy : Close :
+        [self.moveList addObject: [[Move alloc] initWithParams:@"Jab" : Punch : Easy : Close : true :
                                    @[[[CategoryItem alloc] init: Kick | Close : 4],[[CategoryItem alloc] init: Punch : 5], [[CategoryItem alloc] init: HeadMovement : 3], [[CategoryItem alloc] init: FootMovement | Close :3]] ]];
-        [self.moveList addObject: [[Move alloc] initWithParams:@"Cross" : Punch : Easy : Close :
+        [self.moveList addObject: [[Move alloc] initWithParams:@"Cross" : Punch : Easy : Close : true :
                                    @[[[CategoryItem alloc] init: Kick | Close : 4],[[CategoryItem alloc] init: Punch : 5], [[CategoryItem alloc] init: HeadMovement : 3], [[CategoryItem alloc] init: FootMovement | Close :3]] ]];
-        [self.moveList addObject: [[Move alloc] initWithParams:@"Lead Hook" : Punch : Normal : Close :
+        [self.moveList addObject: [[Move alloc] initWithParams:@"Lead Hook" : Punch : Normal : Close : true :
                                    @[[[CategoryItem alloc] init: Kick | Close : 4],[[CategoryItem alloc] init: Punch : 5], [[CategoryItem alloc] init: HeadMovement : 3], [[CategoryItem alloc] init: FootMovement | Close :3]] ]];
-        [self.moveList addObject: [[Move alloc] initWithParams:@"Rear Hook" : Punch : Normal : Close :
+        [self.moveList addObject: [[Move alloc] initWithParams:@"Rear Hook" : Punch : Normal : Close : true :
                                    @[[[CategoryItem alloc] init: Kick | Close : 4],[[CategoryItem alloc] init: Punch : 5], [[CategoryItem alloc] init: HeadMovement : 3], [[CategoryItem alloc] init: FootMovement | Close :3]] ]];
-        [self.moveList addObject: [[Move alloc] initWithParams:@"Lead Uppercut" : Punch : Normal : Close :
+        [self.moveList addObject: [[Move alloc] initWithParams:@"Lead Uppercut" : Punch : Normal : Close : false :
                                    @[[[CategoryItem alloc] init: Kick | Close : 3],[[CategoryItem alloc] init: Punch : 3], [[CategoryItem alloc] init: HeadMovement : 1], [[CategoryItem alloc] init: FootMovement | Close :1]] ]];
-        [self.moveList addObject: [[Move alloc] initWithParams:@"Rear Uppercut" : Punch : Normal : Close :
+        [self.moveList addObject: [[Move alloc] initWithParams:@"Rear Uppercut" : Punch : Normal : Close : false :
                                    @[[[CategoryItem alloc] init: Kick | Close : 3],[[CategoryItem alloc] init: Punch : 3], [[CategoryItem alloc] init: HeadMovement : 1], [[CategoryItem alloc] init: FootMovement | Close :1]] ]];
-        [self.moveList addObject: [[Move alloc] initWithParams:@"Slip" : HeadMovement : Easy : Close :
+        [self.moveList addObject: [[Move alloc] initWithParams:@"Slip" : HeadMovement : Easy : Close : false :
                                    @[[[CategoryItem alloc] init: Kick | Close : 3],[[CategoryItem alloc] init: Punch : 5], [[CategoryItem alloc] init: HeadMovement : 1], [[CategoryItem alloc] init: FootMovement :1]] ]];
-        [self.moveList addObject: [[Move alloc] initWithParams:@"Roll" : HeadMovement : Easy : Close :
+        [self.moveList addObject: [[Move alloc] initWithParams:@"Roll" : HeadMovement : Easy : Close : false :
                                    @[[[CategoryItem alloc] init: Kick | Close : 3],[[CategoryItem alloc] init: Punch : 5], [[CategoryItem alloc] init: HeadMovement : 1], [[CategoryItem alloc] init: FootMovement :1]] ]];
-        [self.moveList addObject: [[Move alloc] initWithParams:@"Lean Back" : HeadMovement : Easy : Close :
+        [self.moveList addObject: [[Move alloc] initWithParams:@"Lean Back" : HeadMovement : Easy : Close : false :
                                    @[[[CategoryItem alloc] init: Kick | Close : 3],[[CategoryItem alloc] init: Punch : 5], [[CategoryItem alloc] init: HeadMovement : 1], [[CategoryItem alloc] init: FootMovement :1]] ]];
-        [self.moveList addObject: [[Move alloc] initWithParams:@"Slide in" : FootMovement : Easy : Far :
+        [self.moveList addObject: [[Move alloc] initWithParams:@"Slide in" : FootMovement : Easy : Far : false :
                                    @[[[CategoryItem alloc] init: Kick | Close : 3],[[CategoryItem alloc] init: Punch : 5], [[CategoryItem alloc] init: HeadMovement : 1], [[CategoryItem alloc] init: FootMovement :1]] ]];
-        [self.moveList addObject: [[Move alloc] initWithParams:@"Slide out" : FootMovement : Easy : Close :
+        [self.moveList addObject: [[Move alloc] initWithParams:@"Slide out" : FootMovement : Easy : Close : false :
                                    @[[[CategoryItem alloc] init: Kick | Far : 3],[[CategoryItem alloc] init: Punch : 2], [[CategoryItem alloc] init: HeadMovement : 1], [[CategoryItem alloc] init: FootMovement :1]] ]];
-        [self.moveList addObject: [[Move alloc] initWithParams:@"Slide left" : FootMovement : Easy : Close | Far :
+        [self.moveList addObject: [[Move alloc] initWithParams:@"Slide left" : FootMovement : Easy : Close | Far : false :
                                    @[[[CategoryItem alloc] init: Kick : 3],[[CategoryItem alloc] init: Punch : 5], [[CategoryItem alloc] init: HeadMovement : 1], [[CategoryItem alloc] init: FootMovement :1]] ]];
-        [self.moveList addObject: [[Move alloc] initWithParams:@"Slide right" : FootMovement : Easy : Close | Far :
+        [self.moveList addObject: [[Move alloc] initWithParams:@"Slide right" : FootMovement : Easy : Close | Far : false :
                                    @[[[CategoryItem alloc] init: Kick : 3],[[CategoryItem alloc] init: Punch : 5], [[CategoryItem alloc] init: HeadMovement : 1], [[CategoryItem alloc] init: FootMovement :1]] ]];
     }
     return self;
@@ -81,9 +81,18 @@
 
 -(NSMutableArray *) getActiveMoveHelper {
     NSMutableArray * rv = [[NSMutableArray alloc] init];
+    Move * currentMove;
     for(int i = 0; i < self.moveList.count; i++) {
-        if([(Move *)self.moveList[i] isActive])
-            [rv addObject:self.moveList[i]];
+        currentMove = (Move *) self.moveList[i];
+        if([currentMove isActive]) { //checks if move is active
+            if([rv lastObject] == currentMove) { //check if the move is a repeat
+                if([currentMove canRepeat]) { //if it can repeat add it, otherwise dont add
+                    [rv addObject:currentMove];
+                }
+            } else { //move isnt repeat and its active so add it to list
+                [rv addObject:currentMove];
+            }
+        }
     }
     return rv;
 }

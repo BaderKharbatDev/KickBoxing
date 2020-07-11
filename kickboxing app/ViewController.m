@@ -187,6 +187,7 @@
     if(tableView == self.table) {
         MainCell *cell = [[MainCell alloc] initWithCell: (Move *) self.moveArray[indexPath.row] : [tableView dequeueReusableCellWithIdentifier: @"cell"]];
         cell.title.text = [NSString stringWithFormat:@"%ld. %@", (long)indexPath.row + 1, cell.title.text];
+        [cell.image setImage: [UIImage imageNamed: [(Move *) self.moveArray[indexPath.row] imgStr]]];
         return cell;
     } else {
         if([(CellMenuItem *) [self.editActualArray objectAtIndex:indexPath.row] isHeader]) {
@@ -202,7 +203,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
    if (tableView == self.table) {
-      return 60;
+      return 70;
    }
    return 44;
 }

@@ -27,8 +27,9 @@ typedef NS_OPTIONS(int, MoveDistance) {
 };
 
 @interface Move : NSObject 
--(id)initWithParams:(NSString*) name : (MoveType) type : (MoveDifficulty) difficulty : (MoveDistance) distance : (BOOL) canRepeat : (NSArray *) nextArray;
+-(id)initWithParams:(NSString*) name : (NSString *) imgStr : (MoveType) type : (MoveDifficulty) difficulty : (MoveDistance) distance : (BOOL) canRepeat : (NSArray *) nextArray;
 @property NSString *name;
+@property NSString * imgStr;
 @property (nonatomic, assign) MoveType moveType;
 @property (nonatomic, assign) MoveDifficulty moveDifficulty;
 @property (nonatomic, assign) MoveDistance moveDistance;

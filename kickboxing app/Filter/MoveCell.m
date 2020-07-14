@@ -18,6 +18,7 @@
     if(self) {
         self.move = move;
         self.title.text = move.name;
+        [self.image setImage: [UIImage imageNamed: self.move.imgStr ]];
         if(move.isActive)
             [self.boxButton setImage: [UIImage imageNamed:@"checked"] forState:UIControlStateNormal];
         else
@@ -30,7 +31,7 @@
     [self changeActiveStatus];
 }
 
--(void) changeActiveStatus {
+-(void)changeActiveStatus {
     self.move.isActive = !self.move.isActive;
     if(self.move.isActive)
         [self.boxButton setImage: [UIImage imageNamed:@"checked"] forState:UIControlStateNormal];

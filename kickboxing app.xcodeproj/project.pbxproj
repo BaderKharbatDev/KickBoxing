@@ -52,6 +52,8 @@
 		1ECF11E724BB8253009D4E6D /* leadupper.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF11D624BB8253009D4E6D /* leadupper.png */; };
 		1ECF11E824BB8253009D4E6D /* slideright.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF11D724BB8253009D4E6D /* slideright.png */; };
 		1ECF11EA24BB83DB009D4E6D /* round.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF11E924BB83DA009D4E6D /* round.png */; };
+		1ECF11ED24BBAA10009D4E6D /* fontlogoblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF11EB24BBAA10009D4E6D /* fontlogoblack.png */; };
+		1ECF11EE24BBAA10009D4E6D /* fontlogowhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF11EC24BBAA10009D4E6D /* fontlogowhite.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +114,8 @@
 		1ECF11D624BB8253009D4E6D /* leadupper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leadupper.png; sourceTree = "<group>"; };
 		1ECF11D724BB8253009D4E6D /* slideright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slideright.png; sourceTree = "<group>"; };
 		1ECF11E924BB83DA009D4E6D /* round.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = round.png; sourceTree = "<group>"; };
+		1ECF11EB24BBAA10009D4E6D /* fontlogoblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fontlogoblack.png; sourceTree = "<group>"; };
+		1ECF11EC24BBAA10009D4E6D /* fontlogowhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fontlogowhite.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,8 @@
 		1E1367E324ACD85C004BB87F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1ECF11EB24BBAA10009D4E6D /* fontlogoblack.png */,
+				1ECF11EC24BBAA10009D4E6D /* fontlogowhite.png */,
 				1ECF116B24B6A4F1009D4E6D /* error.png */,
 				1E1367E424ACD8AE004BB87F /* checked.png */,
 				1E1367E624ACD8AE004BB87F /* arrowdown.png */,
@@ -319,6 +325,7 @@
 				1ECF11D824BB8253009D4E6D /* front.png in Resources */,
 				1ECF117C24B8C7B8009D4E6D /* arrowleft.png in Resources */,
 				1E9E67572471FCB0006595EF /* Main.storyboard in Resources */,
+				1ECF11EE24BBAA10009D4E6D /* fontlogowhite.png in Resources */,
 				1E1367EB24ACD8AE004BB87F /* arrowright.png in Resources */,
 				1E1367EA24ACD8AE004BB87F /* arrowdown.png in Resources */,
 				1E1367F624B413DB004BB87F /* punchplaceholder.png in Resources */,
@@ -328,6 +335,7 @@
 				1E1367E824ACD8AE004BB87F /* checked.png in Resources */,
 				1ECF117024B7DA5B009D4E6D /* ocean.jpg in Resources */,
 				1ECF116C24B6A4F1009D4E6D /* error.png in Resources */,
+				1ECF11ED24BBAA10009D4E6D /* fontlogoblack.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -39,10 +39,44 @@
         if([[(MoveCell *)[(CellMenuItem *) self.moveCellArray[i] cell] move] isActive])
             total++;
     }
+    
     //update label
-    self.activeCountLabel.text = [NSString stringWithFormat:@"%d/%lu Enabled", total, (unsigned long)self.moveCellArray.count];
+    self.activeCountLabel.text = [NSString stringWithFormat:@"%d/%lu Active", total, (unsigned long)self.moveCellArray.count];
+    [self updateCheckBoxImg:total];
 }
 
+-(void) updateCheckBoxImg: (int) count {
+    if(count == 0) {
+        [self.checkBoxImg setImage: [UIImage imageNamed:@"unchecked"] forState:UIControlStateNormal];
+    } else {
+        [self.checkBoxImg setImage: [UIImage imageNamed:@"checked"] forState:UIControlStateNormal];
+    }
+}
+
+-(void) checkBoxPressedAction {
+    int total = 0;
+    for(int i = 0; i < self.moveCellArray.count; i++) {
+        if( [[(MoveCell *) [(CellMenuItem *) self.moveCellArray[i] cell] move] isActive] )
+            total++;
+    }
+    if(total > 0) { //disable all
+        for(int i = 0; i < self.moveCellArray.count; i++) {
+            [(MoveCell *)[(CellMenuItem *) self.moveCellArray[i] cell] changeActiveStatus];
+        }
+    } else { //enable all
+       for(int i = 0; i < self.moveCellArray.count; i++) {
+           [(MoveCell *)[(CellMenuItem *) self.moveCellArray[i] cell] changeActiveStatus];
+       }
+    }
+    [self updateActiveNumber];
+}
+
+- (void) layoutSubviews {
+    [super layoutSubviews];
+
+    CGRect newFrame = UIEdgeInsetsInsetRect(self.layer.frame, UIEdgeInsetsMake(3, 0, 3, 0));
+    self.layer.frame = newFrame;
+}
 
 
 @end

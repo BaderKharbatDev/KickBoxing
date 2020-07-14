@@ -27,7 +27,7 @@
 - (void) layoutSubviews {
     [super layoutSubviews];
 
-    CGRect newFrame = UIEdgeInsetsInsetRect(self.layer.frame, UIEdgeInsetsMake(2, 0, 2, 0));
+    CGRect newFrame = UIEdgeInsetsInsetRect(self.layer.frame, UIEdgeInsetsMake(3, 0, 3, 0));
     self.layer.frame = newFrame;
 }
 

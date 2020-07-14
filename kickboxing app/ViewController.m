@@ -119,6 +119,18 @@
     }
 }
 
+- (IBAction)headerCheckBoxAction:(UIButton *)sender {
+    int index = 0;
+    for(int i = 0; i < self.editHeaderArray.count; i++) {
+        if([(HeaderCell *)[(CellMenuItem *) self.editHeaderArray[i] cell] checkBoxImg] == sender) {
+            index = i;
+            break;
+        }
+    }
+    HeaderCell * selCell = (HeaderCell *)[(CellMenuItem *) self.editHeaderArray[index] cell];
+    [selCell checkBoxPressedAction];
+}
+
 
 
 -(void) setupEditTable {
@@ -205,7 +217,7 @@
    if (tableView == self.table) {
       return 70;
    }
-   return 44;
+   return 50;
 }
 
 @end

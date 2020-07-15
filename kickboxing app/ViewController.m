@@ -23,6 +23,7 @@
 @property MoveManager * manager;
 
 //style only objects
+@property (strong, nonatomic) IBOutlet UIButton *genButton;
 @property (strong, nonatomic) IBOutlet UIView *backGroundUI;
 @property (strong, nonatomic) IBOutlet UIView *topStyleView;
 @end
@@ -46,12 +47,19 @@
     self.table.allowsSelection = false;
     [self.editTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.editTable.allowsSelection = false;
+    
     self.backGroundUI.layer.shadowOffset = CGSizeMake(0, 5);
     self.backGroundUI.layer.shadowRadius = 5;
     self.backGroundUI.layer.shadowOpacity = 0.15;
+    
     self.topStyleView.layer.shadowOffset = CGSizeMake(0, 3);
     self.topStyleView.layer.shadowRadius = 5;
     self.topStyleView.layer.shadowOpacity = 0.5;
+    
+    self.genButton.layer.shadowOffset = CGSizeMake(0, 3);
+    self.genButton.layer.shadowRadius = 5;
+    self.genButton.layer.shadowOpacity = 0.2;
+    
     [self setupEditTable];
 }
 
@@ -197,8 +205,7 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     if(tableView == self.table) {
-        MainCell *cell = [[MainCell alloc] initWithCell: (Move *) self.moveArray[indexPath.row] : [tableView dequeueReusableCellWithIdentifier: @"cell"]];
-        cell.title.text = [NSString stringWithFormat:@"%ld. %@", (long)indexPath.row + 1, cell.title.text];
+        MainCell *cell = [[MainCell alloc] initWithCell: (Move *) self.moveArray[indexPath.row] : [tableView dequeueReusableCellWithIdentifier: @"cell"] : indexPath.row + 1];
         [cell.image setImage: [UIImage imageNamed: [(Move *) self.moveArray[indexPath.row] imgStr]]];
         return cell;
     } else {
@@ -215,7 +222,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
    if (tableView == self.table) {
-      return 70;
+      return 75;
    }
    return 50;
 }

@@ -17,8 +17,9 @@
 #import "../Objects/Move.h"
 
 @interface MainCell : UITableViewCell
--(id)initWithCell: (Move *) move : (UITableViewCell *) cell;
+-(id)initWithCell: (Move *) move : (UITableViewCell *) cell : (int) count;
 @property (strong, nonatomic) IBOutlet UILabel *title;
 @property (strong, nonatomic) IBOutlet UIImageView *image;
+@property (strong, nonatomic) IBOutlet UILabel *countLabel;
 
 @end

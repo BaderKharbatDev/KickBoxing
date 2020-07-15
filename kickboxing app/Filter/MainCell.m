@@ -31,8 +31,8 @@
     CGRect newFrame = UIEdgeInsetsInsetRect(self.layer.frame, UIEdgeInsetsMake(3, 0, 3, 0));
     self.layer.frame = newFrame;
     
-    self.imgBackgroundView.layer.shadowOffset = CGSizeMake(0, 2);
-    self.imgBackgroundView.layer.shadowRadius = 2;
+    self.imgBackgroundView.layer.shadowOffset = CGSizeMake(0, 1);
+    self.imgBackgroundView.layer.shadowRadius = 1;
     self.imgBackgroundView.layer.shadowOpacity = 0.15;
     
 //    self.layer.shadowOffset = CGSizeMake(0, 5);

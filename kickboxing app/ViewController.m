@@ -48,17 +48,17 @@
     [self.editTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.editTable.allowsSelection = false;
     
-    self.backGroundUI.layer.shadowOffset = CGSizeMake(0, 5);
-    self.backGroundUI.layer.shadowRadius = 5;
-    self.backGroundUI.layer.shadowOpacity = 0.15;
+    self.backGroundUI.layer.shadowOffset = CGSizeMake(0, 2);
+    self.backGroundUI.layer.shadowRadius = 2;
+    self.backGroundUI.layer.shadowOpacity = 0.2;
     
     self.topStyleView.layer.shadowOffset = CGSizeMake(0, 3);
     self.topStyleView.layer.shadowRadius = 5;
     self.topStyleView.layer.shadowOpacity = 0.5;
     
-    self.genButton.layer.shadowOffset = CGSizeMake(0, 3);
-    self.genButton.layer.shadowRadius = 5;
-    self.genButton.layer.shadowOpacity = 0.2;
+//    self.genButton.layer.shadowOffset = CGSizeMake(0, 3);
+//    self.genButton.layer.shadowRadius = 5;
+//    self.genButton.layer.shadowOpacity = 0.2;
     
     [self setupEditTable];
 }

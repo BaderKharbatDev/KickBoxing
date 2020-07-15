@@ -61,11 +61,11 @@
     }
     if(total > 0) { //disable all
         for(int i = 0; i < self.moveCellArray.count; i++) {
-            [(MoveCell *)[(CellMenuItem *) self.moveCellArray[i] cell] changeActiveStatus];
+            [(MoveCell *)[(CellMenuItem *) self.moveCellArray[i] cell] makeActiveFalse];
         }
     } else { //enable all
        for(int i = 0; i < self.moveCellArray.count; i++) {
-           [(MoveCell *)[(CellMenuItem *) self.moveCellArray[i] cell] changeActiveStatus];
+           [(MoveCell *)[(CellMenuItem *) self.moveCellArray[i] cell] makeActiveTrue];
        }
     }
     [self updateActiveNumber];

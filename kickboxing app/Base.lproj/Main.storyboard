@@ -205,7 +205,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.95225253809999999" green="0.95225253809999999" blue="0.95225253809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="JN2-h6-AVz" firstAttribute="bottom" secondItem="Gc5-m2-kWJ" secondAttribute="bottom" id="4aF-Vn-oGe"/>
                             <constraint firstItem="Gc5-m2-kWJ" firstAttribute="leading" secondItem="JN2-h6-AVz" secondAttribute="leading" constant="20" id="I1f-Wi-7oC"/>
@@ -238,7 +238,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T7m-w9-wx3">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fontlogowhite.png" translatesAutoresizingMaskIntoConstraints="NO" id="ry2-3Y-f9p">
                                         <rect key="frame" x="310" y="60" width="50" height="40"/>
@@ -267,7 +267,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.97342436295475454" green="0.14052283568495064" blue="0.059883914081179782" alpha="0.86464576198630139" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="9JR-Bu-WIl"/>
+                                    <constraint firstAttribute="height" constant="175" id="9JR-Bu-WIl"/>
                                     <constraint firstItem="ry2-3Y-f9p" firstAttribute="top" secondItem="T7m-w9-wx3" secondAttribute="top" constant="60" id="FqC-wD-Jg5"/>
                                     <constraint firstItem="Skp-BC-yUG" firstAttribute="top" secondItem="T7m-w9-wx3" secondAttribute="top" constant="50" id="Mc0-gp-qrN"/>
                                     <constraint firstAttribute="trailing" secondItem="ry2-3Y-f9p" secondAttribute="trailing" constant="15" id="NNB-f9-jEa"/>
@@ -277,7 +277,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jeb-fU-07m">
-                                <rect key="frame" x="-77" y="160" width="452" height="90"/>
+                                <rect key="frame" x="-77" y="135" width="452" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="xWi-tD-5L9"/>
@@ -289,7 +289,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CyB-fi-cIB">
-                                <rect key="frame" x="20" y="333" width="335" height="356"/>
+                                <rect key="frame" x="20" y="308" width="335" height="381"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="75" id="eOa-09-jOf" customClass="MainCell">
@@ -393,7 +393,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zkR-YF-8d4">
-                                <rect key="frame" x="30" y="195" width="315" height="120"/>
+                                <rect key="frame" x="30" y="170" width="315" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWF-SL-6er">
                                         <rect key="frame" x="10" y="60" width="295" height="50"/>

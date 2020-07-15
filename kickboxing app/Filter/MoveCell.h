@@ -20,6 +20,8 @@
 -(id)initWithCell: (Move *) move : (UITableViewCell *) cell;
 -(void)changeActiveStatus;
 - (IBAction)checkBoxPressed:(UIButton *)sender;
+-(void)makeActiveFalse;
+-(void)makeActiveTrue;
 @property (strong, nonatomic) IBOutlet UIButton *boxButton;
 @property (strong, nonatomic) IBOutlet UILabel * title;
 @property (strong, nonatomic) IBOutlet UIImageView *image;

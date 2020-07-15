@@ -39,5 +39,15 @@
         [self.boxButton setImage: [UIImage imageNamed:@"unchecked"] forState:UIControlStateNormal];
 }
 
+-(void)makeActiveTrue {
+    self.move.isActive = true;
+    [self.boxButton setImage: [UIImage imageNamed:@"checked"] forState:UIControlStateNormal];
+}
+
+-(void)makeActiveFalse {
+    self.move.isActive = false;
+    [self.boxButton setImage: [UIImage imageNamed:@"unchecked"] forState:UIControlStateNormal];
+}
+
 @end
 

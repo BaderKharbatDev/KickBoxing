@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 @interface AppDelegate ()
 
@@ -19,8 +20,10 @@
 
     self.manager = [[MoveManager alloc] init];
     
-//    NSLog(@"%lu", (unsigned long)Easy);
-//    NSLog(@"%lu", Easy | Punch);
+    GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers =
+    @[ @"2077ef9a63d2b398840261c8221a0c9b"  ]; // Sample device ID
+    [GADMobileAds.sharedInstance startWithCompletionHandler: NULL];
+    
     
     return YES;
 }

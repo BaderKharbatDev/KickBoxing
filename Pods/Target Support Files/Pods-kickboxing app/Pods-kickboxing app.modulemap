@@ -1,0 +1,6 @@
+framework module Pods_kickboxing_app {
+  umbrella header "Pods-kickboxing app-umbrella.h"
+
+  export *
+  module * { export * }
+}

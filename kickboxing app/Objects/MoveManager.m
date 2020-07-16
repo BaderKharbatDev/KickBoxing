@@ -25,7 +25,7 @@
                                    @[[[CategoryItem alloc] init: Kick : 3],[[CategoryItem alloc] init: Punch : 5], [[CategoryItem alloc] init: HeadMovement : 1], [[CategoryItem alloc] init: FootMovement :1]] ]];
         [self.moveList addObject: [[Move alloc] initWithParams:@"Round Kick" :  @"round" : Kick : Easy : Far : true :
                                    @[[[CategoryItem alloc] init: Kick : 3],[[CategoryItem alloc] init: Punch : 5], [[CategoryItem alloc] init: HeadMovement : 1], [[CategoryItem alloc] init: FootMovement :1]] ]];
-        [self.moveList addObject: [[Move alloc] initWithParams:@"Side Kick" :  @"sidekick" : Kick :Normal : Far : false :
+        [self.moveList addObject: [[Move alloc] initWithParams:@"Side Kick" :  @"sidekick" : Kick : Normal : Far : false :
                                    @[[[CategoryItem alloc] init: Kick | Close : 3],[[CategoryItem alloc] init: Punch : 5], [[CategoryItem alloc] init: HeadMovement : 1], [[CategoryItem alloc] init: FootMovement :1]] ]];
         [self.moveList addObject: [[Move alloc] initWithParams:@"Turning side kick" :  @"sidekick" : Kick : Hard : Far : false :
                                    @[[[CategoryItem alloc] init: Kick : 2],[[CategoryItem alloc] init: Punch : 5], [[CategoryItem alloc] init: HeadMovement : 1], [[CategoryItem alloc] init: FootMovement :1]] ]];

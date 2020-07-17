@@ -31,7 +31,6 @@
 
 //banner
 @property(nonatomic, strong) GADBannerView *bannerView;
-@property (strong, nonatomic) IBOutlet UIView *bannerContainer;
 @end
 
 @implementation ViewController

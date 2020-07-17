@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -275,7 +275,6 @@
 				7E1D73C6ACC29C763F88B8C6 /* Pods-kickboxing app.debug.xcconfig */,
 				A9EA34F5574802FC59E105CE /* Pods-kickboxing app.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -584,7 +583,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = RX64HPKB3B;
 				INFOPLIST_FILE = "kickboxing app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -608,7 +607,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = RX64HPKB3B;
 				INFOPLIST_FILE = "kickboxing app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

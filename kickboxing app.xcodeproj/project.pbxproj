@@ -16,6 +16,10 @@
 		1E1367F124AE5B43004BB87F /* CellMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1367F024AE5B43004BB87F /* CellMenuItem.m */; };
 		1E1367F424B41122004BB87F /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1367F224B41122004BB87F /* MainCell.m */; };
 		1E1367F624B413DB004BB87F /* punchplaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1367F524B413DB004BB87F /* punchplaceholder.png */; };
+		1E1DBB0524C52717002F53F5 /* DragoW2Final.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1DBB0124C52715002F53F5 /* DragoW2Final.png */; };
+		1E1DBB0624C52717002F53F5 /* DragoBWFinal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1DBB0224C52715002F53F5 /* DragoBWFinal.png */; };
+		1E1DBB0724C52717002F53F5 /* DragoRFinal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1DBB0324C52716002F53F5 /* DragoRFinal.png */; };
+		1E1DBB0824C52717002F53F5 /* DragoWFinal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1DBB0424C52717002F53F5 /* DragoWFinal.png */; };
 		1E28E6B024A4272200E24311 /* CategoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E28E6AF24A4272200E24311 /* CategoryItem.m */; };
 		1E5706FE24B68668004710BB /* filter.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E5706FD24B68668004710BB /* filter.png */; };
 		1E5A89E0B3BC41DBBC7BA269 /* Pods_kickboxing_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B46A294CB9EFB9CF49B428D9 /* Pods_kickboxing_app.framework */; };
@@ -75,6 +79,10 @@
 		1E1367F224B41122004BB87F /* MainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCell.m; sourceTree = "<group>"; };
 		1E1367F324B41122004BB87F /* MainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCell.h; sourceTree = "<group>"; };
 		1E1367F524B413DB004BB87F /* punchplaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = punchplaceholder.png; sourceTree = "<group>"; };
+		1E1DBB0124C52715002F53F5 /* DragoW2Final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DragoW2Final.png; sourceTree = "<group>"; };
+		1E1DBB0224C52715002F53F5 /* DragoBWFinal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DragoBWFinal.png; sourceTree = "<group>"; };
+		1E1DBB0324C52716002F53F5 /* DragoRFinal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DragoRFinal.png; sourceTree = "<group>"; };
+		1E1DBB0424C52717002F53F5 /* DragoWFinal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DragoWFinal.png; sourceTree = "<group>"; };
 		1E28E6AE24A4270500E24311 /* CategoryItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryItem.h; sourceTree = "<group>"; };
 		1E28E6AF24A4272200E24311 /* CategoryItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryItem.m; sourceTree = "<group>"; };
 		1E5706FD24B68668004710BB /* filter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filter.png; sourceTree = "<group>"; };
@@ -145,6 +153,10 @@
 		1E1367E324ACD85C004BB87F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1E1DBB0224C52715002F53F5 /* DragoBWFinal.png */,
+				1E1DBB0324C52716002F53F5 /* DragoRFinal.png */,
+				1E1DBB0124C52715002F53F5 /* DragoW2Final.png */,
+				1E1DBB0424C52717002F53F5 /* DragoWFinal.png */,
 				1ECF121924BFD634009D4E6D /* kcickgenicontrans.png */,
 				1ECF121724BE99A5009D4E6D /* gear.png */,
 				1ECF121524BE93C3009D4E6D /* questionmark.png */,
@@ -345,15 +357,19 @@
 				1ECF120324BE694E009D4E6D /* front.png in Resources */,
 				1ECF117624B7F27C009D4E6D /* hamburgermenu.png in Resources */,
 				1ECF121824BE99A5009D4E6D /* gear.png in Resources */,
+				1E1DBB0624C52717002F53F5 /* DragoBWFinal.png in Resources */,
+				1E1DBB0824C52717002F53F5 /* DragoWFinal.png in Resources */,
 				1E1367E924ACD8AE004BB87F /* unchecked.png in Resources */,
 				1ECF120E24BE694E009D4E6D /* slidein.png in Resources */,
 				1E5706FE24B68668004710BB /* filter.png in Resources */,
 				1ECF121424BE9316009D4E6D /* question.png in Resources */,
 				1ECF117424B7DA6B009D4E6D /* shattered-island.gif in Resources */,
 				1ECF120D24BE694E009D4E6D /* leadupper.png in Resources */,
+				1E1DBB0524C52717002F53F5 /* DragoW2Final.png in Resources */,
 				1ECF121224BE694E009D4E6D /* rearupper.png in Resources */,
 				1E9E67592471FCB1006595EF /* Assets.xcassets in Resources */,
 				1ECF120824BE694E009D4E6D /* slideleft.png in Resources */,
+				1E1DBB0724C52717002F53F5 /* DragoRFinal.png in Resources */,
 				1ECF117C24B8C7B8009D4E6D /* arrowleft.png in Resources */,
 				1E9E67572471FCB0006595EF /* Main.storyboard in Resources */,
 				1ECF120C24BE694E009D4E6D /* round.png in Resources */,
@@ -583,7 +599,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = RX64HPKB3B;
 				INFOPLIST_FILE = "kickboxing app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -607,7 +623,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = RX64HPKB3B;
 				INFOPLIST_FILE = "kickboxing app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

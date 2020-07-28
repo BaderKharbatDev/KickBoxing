@@ -63,6 +63,9 @@
 		1ECF121624BE93C4009D4E6D /* questionmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF121524BE93C3009D4E6D /* questionmark.png */; };
 		1ECF121824BE99A5009D4E6D /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF121724BE99A5009D4E6D /* gear.png */; };
 		1ECF121A24BFD634009D4E6D /* kcickgenicontrans.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF121924BFD634009D4E6D /* kcickgenicontrans.png */; };
+		739B5C7D24CE639C007B1A07 /* speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 739B5C7C24CE639C007B1A07 /* speaker.png */; };
+		739B5C7F24CE70D4007B1A07 /* coach.png in Resources */ = {isa = PBXBuildFile; fileRef = 739B5C7E24CE70D3007B1A07 /* coach.png */; };
+		739B5C8124CE85E2007B1A07 /* whistle.png in Resources */ = {isa = PBXBuildFile; fileRef = 739B5C8024CE85E2007B1A07 /* whistle.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,6 +136,9 @@
 		1ECF121524BE93C3009D4E6D /* questionmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = questionmark.png; sourceTree = "<group>"; };
 		1ECF121724BE99A5009D4E6D /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		1ECF121924BFD634009D4E6D /* kcickgenicontrans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kcickgenicontrans.png; sourceTree = "<group>"; };
+		739B5C7C24CE639C007B1A07 /* speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speaker.png; sourceTree = "<group>"; };
+		739B5C7E24CE70D3007B1A07 /* coach.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coach.png; sourceTree = "<group>"; };
+		739B5C8024CE85E2007B1A07 /* whistle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whistle.png; sourceTree = "<group>"; };
 		7E1D73C6ACC29C763F88B8C6 /* Pods-kickboxing app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kickboxing app.debug.xcconfig"; path = "Target Support Files/Pods-kickboxing app/Pods-kickboxing app.debug.xcconfig"; sourceTree = "<group>"; };
 		A9EA34F5574802FC59E105CE /* Pods-kickboxing app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kickboxing app.release.xcconfig"; path = "Target Support Files/Pods-kickboxing app/Pods-kickboxing app.release.xcconfig"; sourceTree = "<group>"; };
 		B46A294CB9EFB9CF49B428D9 /* Pods_kickboxing_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kickboxing_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +159,9 @@
 		1E1367E324ACD85C004BB87F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				739B5C8024CE85E2007B1A07 /* whistle.png */,
+				739B5C7E24CE70D3007B1A07 /* coach.png */,
+				739B5C7C24CE639C007B1A07 /* speaker.png */,
 				1E1DBB0224C52715002F53F5 /* DragoBWFinal.png */,
 				1E1DBB0324C52716002F53F5 /* DragoRFinal.png */,
 				1E1DBB0124C52715002F53F5 /* DragoW2Final.png */,
@@ -350,9 +359,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				739B5C7F24CE70D4007B1A07 /* coach.png in Resources */,
 				1ECF121A24BFD634009D4E6D /* kcickgenicontrans.png in Resources */,
 				1ECF120A24BE694E009D4E6D /* slideout.png in Resources */,
 				1E9E675C2471FCB1006595EF /* LaunchScreen.storyboard in Resources */,
+				739B5C8124CE85E2007B1A07 /* whistle.png in Resources */,
 				1ECF117224B7DA63009D4E6D /* special-delivery (1).jpg in Resources */,
 				1ECF120324BE694E009D4E6D /* front.png in Resources */,
 				1ECF117624B7F27C009D4E6D /* hamburgermenu.png in Resources */,
@@ -378,6 +389,7 @@
 				1ECF120124BE694E009D4E6D /* cross.png in Resources */,
 				1ECF120524BE694E009D4E6D /* slideright.png in Resources */,
 				1ECF120424BE694E009D4E6D /* sidekick.png in Resources */,
+				739B5C7D24CE639C007B1A07 /* speaker.png in Resources */,
 				1ECF120F24BE694E009D4E6D /* knee.png in Resources */,
 				1ECF121124BE694E009D4E6D /* slip.png in Resources */,
 				1E1367EB24ACD8AE004BB87F /* arrowright.png in Resources */,

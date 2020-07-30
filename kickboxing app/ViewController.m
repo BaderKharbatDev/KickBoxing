@@ -16,6 +16,13 @@
 @property (strong, nonatomic) IBOutlet UITableView *table;
 @property (strong, nonatomic) IBOutlet UITableView *editTable;
 
+@property (strong, nonatomic) IBOutlet UIButton *autoButton;
+@property (strong, nonatomic) IBOutlet UIView *timerSettingsView;
+@property (strong, nonatomic) IBOutlet UIView *timerClockView;
+@property (strong, nonatomic) IBOutlet UILabel *timerCountLabel;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *timerDelay;
+@property (strong, nonatomic) IBOutlet UIStepper *timerCounter;
+
 //modal windows
 @property (strong, nonatomic) IBOutlet UIView *warningWindow;
 
@@ -23,11 +30,13 @@
 @property NSArray * editHeaderArray;
 @property NSMutableArray * editActualArray;
 @property MoveManager * manager;
+@property BOOL isTimerOn;
 
 //style only objects
 @property (strong, nonatomic) IBOutlet UIButton *genButton;
 @property (strong, nonatomic) IBOutlet UIView *backGroundUI;
 @property (strong, nonatomic) IBOutlet UIView *topStyleView;
+@property (strong, nonatomic) IBOutlet UIView *backGroundUI2;
 
 //banner
 @property(nonatomic, strong) GADBannerView *bannerView;
@@ -44,11 +53,11 @@
     // In this case, we instantiate the banner with desired ad size.
     self.bannerView = [[GADBannerView alloc]
         initWithAdSize:kGADAdSizeBanner];
-    [self addBannerViewToView:self.bannerView];
+    //[self addBannerViewToView:self.bannerView];
     self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716"; //test
 //    self.bannerView.adUnitID = @"ca-app-pub-8286027185402342/9907216040";
     self.bannerView.rootViewController = self;
-    [self.bannerView loadRequest:[GADRequest request]];
+    //[self.bannerView loadRequest:[GADRequest request]];
 }
 
 - (void)addBannerViewToView:(UIView *)bannerView {
@@ -77,6 +86,10 @@
     self.stepper.minimumValue = 1;
     self.stepper.maximumValue = 10;
     self.stepper.value = 3;
+    self.timerCounter.minimumValue = 1;
+    self.timerCounter.maximumValue = 10;
+    self.timerCounter.value = 3;
+    
     self.countLabel.text = [NSString stringWithFormat:@"%1.0f", self.stepper.value];
     [self.table setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.table.allowsSelection = false;
@@ -91,9 +104,14 @@
     self.topStyleView.layer.shadowRadius = 5;
     self.topStyleView.layer.shadowOpacity = 0.5;
     
-//    self.genButton.layer.shadowOffset = CGSizeMake(0, 3);
-//    self.genButton.layer.shadowRadius = 5;
-//    self.genButton.layer.shadowOpacity = 0.2;
+    self.backGroundUI2.layer.shadowOffset = CGSizeMake(0, 2);
+    self.backGroundUI2.layer.shadowRadius = 2;
+    self.backGroundUI2.layer.shadowOpacity = 0.2;
+    
+    //hides timer view to show the settings view first
+    [self.timerClockView setHidden:true];
+    self.isTimerOn = false;
+    self.timerCountLabel.text = @"3";
     
     [self setupEditTable];
 }
@@ -111,6 +129,51 @@
     } @catch (NSException *exception) {
         [self displayWarningWindow];
     }
+}
+
+//---------------TIMER METHODS-------------------------------------------------
+
+
+- (IBAction)timerCounterChanged:(UIStepper *)sender {
+    [self.timerCountLabel setText: [NSString stringWithFormat:@"%1.0f", sender.value]];
+}
+
+- (IBAction)timerButtonPressed:(UIButton *)sender {
+    _isTimerOn = !_isTimerOn;
+    //changes button text and color
+    if(_isTimerOn) {
+        [sender setTitle:@"STOP" forState:UIControlStateNormal];
+        [sender setBackgroundColor: [UIColor redColor]];
+        [self.timerClockView setHidden: false];
+        [self.timerSettingsView setHidden: TRUE];
+        
+        
+        @try {
+            self.moveArray = [self.manager generate: 3];
+            [self.table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+
+        } @catch (NSException *exception) {
+            [self displayWarningWindow];
+        }
+        
+    } else {
+        [sender setTitle:@"START" forState:UIControlStateNormal];
+        [sender setBackgroundColor: [UIColor grayColor]];
+        [self.timerClockView setHidden: TRUE];
+        [self.timerSettingsView setHidden: false];
+        
+        @try {
+                self.moveArray = NULL;
+            [self.table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+
+            } @catch (NSException *exception) {
+                [self displayWarningWindow];
+            }
+    }
+}
+
+-(void) startTimerShit: (int) strikeCount : (int) roundTime {
+    
 }
 
 //---------------MODAL POP UP METHODS------------------------------------------
@@ -259,7 +322,9 @@
    if (tableView == self.table) {
       return 75;
    }
-   return 50;
+   return 60;
 }
 
+- (IBAction)timerStepper:(UIStepper *)sender {
+}
 @end

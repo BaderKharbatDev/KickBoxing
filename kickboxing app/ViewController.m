@@ -10,7 +10,7 @@
 #import <GoogleMobileAds/GoogleMobileAds.h>
 
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate, UITabBarControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIStepper *stepper;
 @property (strong, nonatomic) IBOutlet UILabel *countLabel;
 @property (strong, nonatomic) IBOutlet UITableView *table;
@@ -22,7 +22,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *timerCountLabel;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *timerDelay;
 @property (strong, nonatomic) IBOutlet UIStepper *timerCounter;
-@property (strong, nonatomic) IBOutlet UIProgressView *timerProgressBar;
 @property (strong, nonatomic) IBOutlet UILabel *timerClockLabel;
 
 //modal windows
@@ -50,16 +49,14 @@
     [super viewDidLoad];
     AppDelegate* delegateInstance = ( AppDelegate* )[UIApplication sharedApplication].delegate;
     _manager = [delegateInstance manager];
+    
     [self setupUI];
     
     // In this case, we instantiate the banner with desired ad size.
-    self.bannerView = [[GADBannerView alloc]
-        initWithAdSize:kGADAdSizeBanner];
-    //[self addBannerViewToView:self.bannerView];
+    self.bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
     self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716"; //test
-//    self.bannerView.adUnitID = @"ca-app-pub-8286027185402342/9907216040";
     self.bannerView.rootViewController = self;
-    //[self.bannerView loadRequest:[GADRequest request]];
+    [self.bannerView loadRequest:[GADRequest request]];
 }
 
 - (void)addBannerViewToView:(UIView *)bannerView {
@@ -175,6 +172,13 @@
             [sender setBackgroundColor: [UIColor grayColor]];
             [self.timerClockView setHidden: TRUE];
             [self.timerSettingsView setHidden: false];
+            
+            @try {
+                self.moveArray = NULL;
+                [self.table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+            } @catch (NSException *exception) {
+                [self displayWarningWindow];
+            }
         }
     }
 }
@@ -188,16 +192,26 @@
             total = 5;
             break;
         case 1:
-            delay = 30;
-            total = 30;
+            delay = 15;
+            total = 15;
             break;
         case 2:
-            delay = 60;
-            total = 60;
+            delay = 30;
+            total = 30;
             break;
     }
 
     while(self.isTimerOn) {
+        //updates table
+        dispatch_async(dispatch_get_main_queue(), ^{
+           @try {
+               self.moveArray = [self.manager generate: strikeCount];
+               [self.table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+           } @catch (NSException *exception) {
+               [self displayWarningWindow];
+           }
+        });
+        
         while(delay != -1) {
             //check to ensure that the timer is off
             @synchronized (self) {
@@ -366,6 +380,10 @@
    return 60;
 }
 
-- (IBAction)timerStepper:(UIStepper *)sender {
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    @synchronized (self) {
+        self.isTimerOn = false;
+    }
 }
 @end

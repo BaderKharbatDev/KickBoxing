@@ -16,12 +16,14 @@
 @property (strong, nonatomic) IBOutlet UITableView *table;
 @property (strong, nonatomic) IBOutlet UITableView *editTable;
 
+@property (strong, nonatomic) IBOutlet UIView *timerClockView;
 @property (strong, nonatomic) IBOutlet UIButton *autoButton;
 @property (strong, nonatomic) IBOutlet UIView *timerSettingsView;
-@property (strong, nonatomic) IBOutlet UIView *timerClockView;
 @property (strong, nonatomic) IBOutlet UILabel *timerCountLabel;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *timerDelay;
 @property (strong, nonatomic) IBOutlet UIStepper *timerCounter;
+@property (strong, nonatomic) IBOutlet UIProgressView *timerProgressBar;
+@property (strong, nonatomic) IBOutlet UILabel *timerClockLabel;
 
 //modal windows
 @property (strong, nonatomic) IBOutlet UIView *warningWindow;
@@ -147,14 +149,15 @@
         [self.timerClockView setHidden: false];
         [self.timerSettingsView setHidden: TRUE];
         
+        [self startTimerShit: self.timerCounter.value : self.timerDelay.selectedSegmentIndex];
         
-        @try {
-            self.moveArray = [self.manager generate: 3];
-            [self.table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-
-        } @catch (NSException *exception) {
-            [self displayWarningWindow];
-        }
+//        @try {
+//            self.moveArray = [self.manager generate: 3];
+//            [self.table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+//
+//        } @catch (NSException *exception) {
+//            [self displayWarningWindow];
+//        }
         
     } else {
         [sender setTitle:@"START" forState:UIControlStateNormal];
@@ -173,7 +176,7 @@
 }
 
 -(void) startTimerShit: (int) strikeCount : (int) roundTime {
-    
+    NSLog(@"values: %d %d", strikeCount, roundTime);
 }
 
 //---------------MODAL POP UP METHODS------------------------------------------

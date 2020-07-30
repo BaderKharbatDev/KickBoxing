@@ -141,42 +141,80 @@
 }
 
 - (IBAction)timerButtonPressed:(UIButton *)sender {
-    _isTimerOn = !_isTimerOn;
-    //changes button text and color
-    if(_isTimerOn) {
-        [sender setTitle:@"STOP" forState:UIControlStateNormal];
-        [sender setBackgroundColor: [UIColor redColor]];
-        [self.timerClockView setHidden: false];
-        [self.timerSettingsView setHidden: TRUE];
-        
-        [self startTimerShit: self.timerCounter.value : self.timerDelay.selectedSegmentIndex];
-        
-//        @try {
-//            self.moveArray = [self.manager generate: 3];
-//            [self.table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-//
-//        } @catch (NSException *exception) {
-//            [self displayWarningWindow];
-//        }
-        
-    } else {
-        [sender setTitle:@"START" forState:UIControlStateNormal];
-        [sender setBackgroundColor: [UIColor grayColor]];
-        [self.timerClockView setHidden: TRUE];
-        [self.timerSettingsView setHidden: false];
-        
-        @try {
-                self.moveArray = NULL;
-            [self.table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    //check if timer is off and list is zero
+    BOOL listEmpty = true;
+    for(int i = 0; i < self.manager.moveList.count; i++) {
+        if([(Move *)self.manager.moveList[i] isActive])
+            listEmpty = false;
+    }
+    if(!_isTimerOn && listEmpty) { //if movelist is empty make sure timer doenst start
+        [self displayWarningWindow];
+        return;
+    }
+    
+    @synchronized (self) {
+        _isTimerOn = !_isTimerOn;
 
-            } @catch (NSException *exception) {
-                [self displayWarningWindow];
-            }
+        //changes button text and color
+        if(_isTimerOn) {
+            [sender setTitle:@"STOP" forState:UIControlStateNormal];
+            [sender setBackgroundColor: [UIColor redColor]];
+            [self.timerClockView setHidden: false];
+            [self.timerSettingsView setHidden: TRUE];
+            
+            int count = self.timerCounter.value;
+            int delay = self.timerDelay.selectedSegmentIndex;
+            dispatch_async(dispatch_get_global_queue(0, 0),
+            ^ {
+                [self startTimerShit: count : delay];
+            });
+            
+            
+        } else {
+            [sender setTitle:@"START" forState:UIControlStateNormal];
+            [sender setBackgroundColor: [UIColor grayColor]];
+            [self.timerClockView setHidden: TRUE];
+            [self.timerSettingsView setHidden: false];
+        }
     }
 }
 
 -(void) startTimerShit: (int) strikeCount : (int) roundTime {
-    NSLog(@"values: %d %d", strikeCount, roundTime);
+    int delay = 0;
+    int total = 0;
+    switch(roundTime) {
+        case 0:
+            delay = 5;
+            total = 5;
+            break;
+        case 1:
+            delay = 30;
+            total = 30;
+            break;
+        case 2:
+            delay = 60;
+            total = 60;
+            break;
+    }
+
+    while(self.isTimerOn) {
+        while(delay != -1) {
+            //check to ensure that the timer is off
+            @synchronized (self) {
+                if(!self.isTimerOn) {
+                    return;
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    int minutes = (int) delay / 60;
+                    int seconds = (int) delay % 60;
+                    self.timerClockLabel.text = [NSString stringWithFormat:@"%d:%02d", minutes, seconds];
+                });
+                [NSThread sleepForTimeInterval: 1];
+                delay -= 1;
+            }
+        }
+        delay = total;
+    }
 }
 
 //---------------MODAL POP UP METHODS------------------------------------------

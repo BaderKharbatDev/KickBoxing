@@ -342,8 +342,8 @@
                                                 </constraints>
                                                 <segments>
                                                     <segment title="Immediately"/>
+                                                    <segment title="10 sec"/>
                                                     <segment title="15 sec"/>
-                                                    <segment title="30 sec"/>
                                                 </segments>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </segmentedControl>
@@ -364,6 +364,7 @@
                                                     </label>
                                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minimumValue="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="gjK-1C-rqb">
                                                         <rect key="frame" x="189.66666666666669" y="0.0" width="94" height="32"/>
+                                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
                                                             <action selector="timerCounterChanged:" destination="ffK-D8-bBX" eventType="valueChanged" id="SUa-ZQ-fNE"/>
                                                         </connections>

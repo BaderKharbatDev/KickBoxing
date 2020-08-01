@@ -8,9 +8,11 @@
 
 #import "ViewController.h"
 #import <GoogleMobileAds/GoogleMobileAds.h>
+#import <AVFoundation/AVFoundation.h>
+#import <QuartzCore/QuartzCore.h>
 
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate, UITabBarControllerDelegate>
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate, UITabBarDelegate, UITabBarControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIStepper *stepper;
 @property (strong, nonatomic) IBOutlet UILabel *countLabel;
 @property (strong, nonatomic) IBOutlet UITableView *table;
@@ -41,6 +43,11 @@
 
 //banner
 @property(nonatomic, strong) GADBannerView *bannerView;
+
+//sound
+@property AVSpeechUtterance *speechutt;
+@property AVSpeechSynthesizer *synthesizer;
+
 @end
 
 @implementation ViewController
@@ -49,12 +56,18 @@
     [super viewDidLoad];
     AppDelegate* delegateInstance = ( AppDelegate* )[UIApplication sharedApplication].delegate;
     _manager = [delegateInstance manager];
-    
     [self setupUI];
+    
+    //sound synth
+    self.synthesizer = [[AVSpeechSynthesizer alloc]init];
+    AVAudioSession *as = [AVAudioSession sharedInstance];
+    [as setCategory:AVAudioSessionCategoryPlayback withOptions: AVAudioSessionCategoryOptionDuckOthers error:NULL];
     
     // In this case, we instantiate the banner with desired ad size.
     self.bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+    [self addBannerViewToView:self.bannerView];
     self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716"; //test
+    //    self.bannerView.adUnitID = @"ca-app-pub-8286027185402342/9907216040";
     self.bannerView.rootViewController = self;
     [self.bannerView loadRequest:[GADRequest request]];
 }
@@ -86,7 +99,7 @@
     self.stepper.maximumValue = 10;
     self.stepper.value = 3;
     self.timerCounter.minimumValue = 1;
-    self.timerCounter.maximumValue = 10;
+    self.timerCounter.maximumValue = 7;
     self.timerCounter.value = 3;
     
     self.countLabel.text = [NSString stringWithFormat:@"%1.0f", self.stepper.value];
@@ -138,6 +151,7 @@
 }
 
 - (IBAction)timerButtonPressed:(UIButton *)sender {
+    
     //check if timer is off and list is zero
     BOOL listEmpty = true;
     for(int i = 0; i < self.manager.moveList.count; i++) {
@@ -161,12 +175,9 @@
             
             int count = self.timerCounter.value;
             int delay = self.timerDelay.selectedSegmentIndex;
-            dispatch_async(dispatch_get_global_queue(0, 0),
-            ^ {
+            dispatch_async(dispatch_get_global_queue(0, 0), ^ {
                 [self startTimerShit: count : delay];
             });
-            
-            
         } else {
             [sender setTitle:@"START" forState:UIControlStateNormal];
             [sender setBackgroundColor: [UIColor grayColor]];
@@ -192,24 +203,51 @@
             total = 5;
             break;
         case 1:
-            delay = 15;
-            total = 15;
+            delay = 10;
+            total = 10;
             break;
         case 2:
-            delay = 30;
-            total = 30;
+            delay = 15;
+            total = 15;
             break;
     }
 
     while(self.isTimerOn) {
         //updates table
         dispatch_async(dispatch_get_main_queue(), ^{
-           @try {
-               self.moveArray = [self.manager generate: strikeCount];
-               [self.table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-           } @catch (NSException *exception) {
-               [self displayWarningWindow];
-           }
+            @synchronized (self) {
+               @try {
+                   self.moveArray = [self.manager generate: strikeCount];
+                   [self.table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+               } @catch (NSException *exception) {
+                   [self displayWarningWindow];
+               }
+               [NSThread sleepForTimeInterval: 0.5];
+            }
+        });
+        
+        //plays sounds
+        dispatch_async(dispatch_get_main_queue(), ^{
+            @synchronized (self) {
+                //play sound
+                for(int i = 0; i < self->_moveArray.count; i++) {
+                    NSLog(@"%@", [(Move *) self->_moveArray[i] name]);
+                    //sound stuff
+                    self.speechutt = [AVSpeechUtterance speechUtteranceWithString: [(Move *) self->_moveArray[i] name]];
+//                    [self->_speechutt accessibilityAttributedValue
+                    self->_speechutt.volume=150.0f;
+                    self->_speechutt.pitchMultiplier=0.80f;
+                    [self->_speechutt setRate:0.52f];
+                    self->_speechutt.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-us"];
+                    [self->_synthesizer speakUtterance:self->_speechutt];
+                }
+                while([self->_synthesizer isSpeaking]) {
+                    //busy wait until done
+                    if(!self.isTimerOn) {
+                        return;
+                    }
+                }
+            }
         });
         
         while(delay != -1) {
@@ -223,9 +261,17 @@
                     int seconds = (int) delay % 60;
                     self.timerClockLabel.text = [NSString stringWithFormat:@"%d:%02d", minutes, seconds];
                 });
-                [NSThread sleepForTimeInterval: 1];
-                delay -= 1;
             }
+            //sleep for a second
+            for(int i = 0; i < 4; i ++) {
+                @synchronized (self) {
+                    [NSThread sleepForTimeInterval: 0.25];
+                    if(!self.isTimerOn) {
+                        return;
+                    }
+                }
+            }
+            delay -= 1;
         }
         delay = total;
     }
@@ -385,5 +431,10 @@
     @synchronized (self) {
         self.isTimerOn = false;
     }
+}
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
+    NSLog(@"tab selected: %@", item.title);
 }
 @end

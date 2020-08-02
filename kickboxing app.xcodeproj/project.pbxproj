@@ -627,7 +627,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RX64HPKB3B;
 				INFOPLIST_FILE = "kickboxing app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -635,6 +635,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 3;
 				PRODUCT_BUNDLE_IDENTIFIER = SUNSTRIDER.generator.kickboxing;
 				PRODUCT_NAME = Kickbotic;
 				SWIFT_OBJC_BRIDGING_HEADER = "kickboxing app/kickboxing app-Bridging-Header.h";
@@ -651,7 +652,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RX64HPKB3B;
 				INFOPLIST_FILE = "kickboxing app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -659,6 +660,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 3;
 				PRODUCT_BUNDLE_IDENTIFIER = SUNSTRIDER.generator.kickboxing;
 				PRODUCT_NAME = Kickbotic;
 				SWIFT_OBJC_BRIDGING_HEADER = "kickboxing app/kickboxing app-Bridging-Header.h";

@@ -220,9 +220,9 @@
                    self.moveArray = [self.manager generate: strikeCount];
                    [self.table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
                } @catch (NSException *exception) {
-                   [self displayWarningWindow];
+//                   [self displayWarningWindow];
+                   //repeat because we cant handle fucking tab vc
                }
-               [NSThread sleepForTimeInterval: 0.5];
             }
         });
         
@@ -234,18 +234,11 @@
                     NSLog(@"%@", [(Move *) self->_moveArray[i] name]);
                     //sound stuff
                     self.speechutt = [AVSpeechUtterance speechUtteranceWithString: [(Move *) self->_moveArray[i] name]];
-//                    [self->_speechutt accessibilityAttributedValue
                     self->_speechutt.volume=150.0f;
                     self->_speechutt.pitchMultiplier=0.80f;
                     [self->_speechutt setRate:0.52f];
                     self->_speechutt.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-us"];
                     [self->_synthesizer speakUtterance:self->_speechutt];
-                }
-                while([self->_synthesizer isSpeaking]) {
-                    //busy wait until done
-                    if(!self.isTimerOn) {
-                        return;
-                    }
                 }
             }
         });

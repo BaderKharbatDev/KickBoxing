@@ -53,7 +53,6 @@
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
-		<string>audio</string>
 		<string>armv7</string>
 	</array>
 	<key>UIStatusBarStyle</key>

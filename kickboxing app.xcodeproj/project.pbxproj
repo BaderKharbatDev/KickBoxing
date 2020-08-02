@@ -22,7 +22,6 @@
 		1E1DBB0824C52717002F53F5 /* DragoWFinal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1DBB0424C52717002F53F5 /* DragoWFinal.png */; };
 		1E28E6B024A4272200E24311 /* CategoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E28E6AF24A4272200E24311 /* CategoryItem.m */; };
 		1E37B87724D3AF80008A1ED7 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E37B87524D3AF80008A1ED7 /* SoundManager.m */; };
-		1E37B87924D3B1C1008A1ED7 /* knee.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1E37B87824D3B1C1008A1ED7 /* knee.mp3 */; };
 		1E5706FE24B68668004710BB /* filter.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E5706FD24B68668004710BB /* filter.png */; };
 		1E5A89E0B3BC41DBBC7BA269 /* Pods_kickboxing_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B46A294CB9EFB9CF49B428D9 /* Pods_kickboxing_app.framework */; };
 		1E9E674E2471FCB0006595EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9E674D2471FCB0006595EF /* AppDelegate.m */; };
@@ -84,6 +83,7 @@
 		1E1367F224B41122004BB87F /* MainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCell.m; sourceTree = "<group>"; };
 		1E1367F324B41122004BB87F /* MainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCell.h; sourceTree = "<group>"; };
 		1E1367F524B413DB004BB87F /* punchplaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = punchplaceholder.png; sourceTree = "<group>"; };
+		1E1AE24824D661B00084718A /* shortsilence.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = shortsilence.m4a; sourceTree = "<group>"; };
 		1E1DBB0124C52715002F53F5 /* DragoW2Final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DragoW2Final.png; sourceTree = "<group>"; };
 		1E1DBB0224C52715002F53F5 /* DragoBWFinal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DragoBWFinal.png; sourceTree = "<group>"; };
 		1E1DBB0324C52716002F53F5 /* DragoRFinal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DragoRFinal.png; sourceTree = "<group>"; };
@@ -92,7 +92,6 @@
 		1E28E6AF24A4272200E24311 /* CategoryItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryItem.m; sourceTree = "<group>"; };
 		1E37B87524D3AF80008A1ED7 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
 		1E37B87624D3AF80008A1ED7 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
-		1E37B87824D3B1C1008A1ED7 /* knee.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = knee.mp3; sourceTree = "<group>"; };
 		1E5706FD24B68668004710BB /* filter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filter.png; sourceTree = "<group>"; };
 		1E9E67492471FCB0006595EF /* Kickbotic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kickbotic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E9E674C2471FCB0006595EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -250,7 +249,7 @@
 				1E9E67502471FCB0006595EF /* SceneDelegate.m */,
 				1E9E67522471FCB0006595EF /* ViewController.h */,
 				1E9E67532471FCB0006595EF /* ViewController.m */,
-				1E37B87824D3B1C1008A1ED7 /* knee.mp3 */,
+				1E1AE24824D661B00084718A /* shortsilence.m4a */,
 				1E9E67552471FCB0006595EF /* Main.storyboard */,
 				1E9E67582471FCB1006595EF /* Assets.xcassets */,
 				1E9E675A2471FCB1006595EF /* LaunchScreen.storyboard */,
@@ -397,7 +396,6 @@
 				1E9E67592471FCB1006595EF /* Assets.xcassets in Resources */,
 				1ECF120824BE694E009D4E6D /* slideleft.png in Resources */,
 				1E1DBB0724C52717002F53F5 /* DragoRFinal.png in Resources */,
-				1E37B87924D3B1C1008A1ED7 /* knee.mp3 in Resources */,
 				1ECF117C24B8C7B8009D4E6D /* arrowleft.png in Resources */,
 				1E9E67572471FCB0006595EF /* Main.storyboard in Resources */,
 				1ECF120C24BE694E009D4E6D /* round.png in Resources */,

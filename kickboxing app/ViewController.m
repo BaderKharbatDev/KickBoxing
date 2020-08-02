@@ -47,6 +47,7 @@
 //sound
 @property AVSpeechUtterance *speechutt;
 @property AVSpeechSynthesizer *synthesizer;
+@property (nonatomic,strong)AVAudioPlayer *player;
 
 @end
 
@@ -62,6 +63,15 @@
     self.synthesizer = [[AVSpeechSynthesizer alloc]init];
     AVAudioSession *as = [AVAudioSession sharedInstance];
     [as setCategory:AVAudioSessionCategoryPlayback withOptions: AVAudioSessionCategoryOptionDuckOthers error:NULL];
+    
+    NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
+    NSString *path = [NSString stringWithFormat:@"%@/shortsilence.m4a", resourcePath];
+    NSURL *url = [NSURL fileURLWithPath:path];
+    NSError *error;
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL: url error:&error];
+    self.player.numberOfLoops = 0; //Infinite
+    self.player.delegate = self;
+    [self.player prepareToPlay];
     
     // In this case, we instantiate the banner with desired ad size.
     self.bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
@@ -239,6 +249,9 @@
                     [self->_speechutt setRate:0.52f];
                     self->_speechutt.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-us"];
                     [self->_synthesizer speakUtterance:self->_speechutt];
+                    
+                    //play small sound of silence to jog whenever phone goes to sleep
+                    [self.player play];
                 }
             }
         });
